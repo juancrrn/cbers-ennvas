@@ -29,7 +29,7 @@ public class Controller {
 		/**
 		 * Llamar a la función que procesa la consulta.
 		 */
-		ArrayList<Result> results = MainAlgorithm.processRequest(query);
+		//ArrayList<Result> results = MainAlgorithm.processQuery(query);
 
 		/**
 		 * Construir el JSON.
@@ -49,9 +49,9 @@ public class Controller {
 		 * 		}
 		 * }
 		 */
-		String jsonOutput = "";
+		//String jsonOutput = "";
 
-		return jsonOutput;
+		return null;//jsonOutput;
 	}
 
 }
