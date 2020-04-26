@@ -1,120 +1,63 @@
-package com.cbers.ennvas.recommender.core;
+package com.cbers.ennvas.recommender.rest.controller.data;
 
 import java.util.LinkedList;
-import java.util.Comparator;
+import java.util.List;
 
-/**
- * Main algorigthm of Ennvas recommender component.
- * 
- * @author Juan Francisco Carrión Molina
- * @author Raquel Pérez González de Ossuna
- * @author Olga Posada Iglesias
- * @author Nicolás Pardina Popp
- * @author Melany Daniela Chicaiza Quezada
- * 
- * @version 0.1
- */
+import com.cbers.ennvas.recommender.domain.Query;
+import com.cbers.ennvas.recommender.domain.StoredValue;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class MainAlgorithm
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "query",
+    "stored_values"
+})
+public class RcmRequestWrapper
 {
-	/**
-	 * @var Result elements to show the user. 
-	 */
-	private static final int FIRST_X_ELEMENTS = 6;
-	
-	/**
-	 * @var Minimum accepted utility for the results.
-	 */
-	private static final int MINIMUM_UTILITY = 1;
 
-	/**
-	 * @var Knowledge base.
-	 */
-	private LinkedList<StoredValue> storedValues;
+	@JsonProperty("query")
+	private Query query;
 
-	/**
-	 * Constructs an algorithm object with a knowledge base.
-	 * 
-	 * @param storedValues Knowledge base
-	 */
-	public MainAlgorithm(LinkedList<StoredValue> storedValues)
+	@JsonProperty("stored_values")
+	private List<StoredValue> storedValues = null;
+
+	@JsonCreator
+	public RcmRequestWrapper(Query query, List<StoredValue> storedValues)
 	{
+		this.query = query;
 		this.storedValues = storedValues;
 	}
 
-	/**
-	 * Processes a query.
-	 * 
-	 * @param query Query to process
-	 * 
-	 * @return Result list
-	 */
-	public LinkedList<ResultValue> processQuery(Query query)
+    @JsonProperty("query")
+	public Query getQuery()
 	{
-		/**
-		 * Pre-calculate all products' utility based on the query.
-		 */
-
-		for (StoredValue v : storedValues) {
-			v.calculateUtility(query);
-		}
-
-		/**
-		 * Sort the knowledge base products by their utility.
-		 */
-
-		this.storedValues.sort(Comparator.comparingDouble(StoredValue:: getUtility).reversed());
-		
-		/**
-		 * Take the first FIRST_X_ELEMENTS elements, that is, those whose
-		 * utility value is higher.
-		 * 
-		 * We also require a minimum utility value: MINIMUM_UTILITY;
-		 * 
-		 * Simultaneously, we transform selected StoredValue objects
-		 * to ResultValue objects.
-		 */
-
-		LinkedList<ResultValue> returnValues = new LinkedList<ResultValue>();
-		
-		for (int i = 0; i < FIRST_X_ELEMENTS && i < storedValues.size(); i++) {
-			if (storedValues.get(i).getUtility() >= MINIMUM_UTILITY) {
-				returnValues.add(new ResultValue(storedValues.get(i)));
-			}
-		}
-
-		/**
-		 * Return result objects.
-		 */
-
-		return returnValues;
+		return this.query;
 	}
 
-	public static void main(String[] args)
+    @JsonProperty("query")
+    public void setQuery(Query query) {
+        this.query = query;
+    }
+
+    @JsonProperty("stored_values")
+	public List<StoredValue> getStoredValues()
 	{
-		/*
-		 * Create CLI presentation.
-		 */
-		
-		String ennvasAsciiArt =
-			" ______\n" +                           
-			"|  ____|\n" +
-			"| |__   _ __  _ ____   ____ _ ___\n" + 
-			"|  __| | '_ \\| '_ \\ \\ / / _` / __|\n" +
-			"| |____| | | | | | \\ V / (_| \\__ \\\n" +
-			"|______|_| |_|_| |_|\\_/ \\__,_|___/\n";
-		
-		String ennvasPresentation =
-			"Ennvas version 0.1 2020-04-18 19:00\n\n" +
-			"Recommender component core algorithm test\n\n" +
-			"By Juan Francisco Carrión Molina,\n" + 
-			"Raquel Pérez González de Ossuna,\n" + 
-			"Olga Posada Iglesias,\n" + 
-			"Nicolás Pardina Popp and\n" + 
-			"Melany Daniela Chicaiza Quezada.";
-		
-		String div = "\n----------------------------------------------\n";
-		
+		return this.storedValues;
+	}
+
+    @JsonProperty("stored_values")
+    public void setStoredValues(List<StoredValue> storedValues) {
+        this.storedValues = storedValues;
+    }
+
+	@JsonIgnore
+	public static RcmRequestWrapper demoRequest()
+	{
+
 		/*
 		 * Create example products and store them.
 		 */
@@ -228,7 +171,7 @@ public class MainAlgorithm
 			4.5
 		);
 
-		LinkedList<StoredValue> storedValues = new LinkedList<StoredValue>();
+		List<StoredValue> storedValues = new LinkedList<StoredValue>();
 		storedValues.add(v1);
 		storedValues.add(v2);
 		storedValues.add(v3);
@@ -253,43 +196,6 @@ public class MainAlgorithm
 			3 // Rating
 		);
 
-		/*
-		 * Run.
-		 */
-		
-		System.out.println(ennvasAsciiArt);
-		System.out.println(ennvasPresentation);
-		System.out.println(div);
-
-		System.out.println("### Stored articles are:\n");
-		System.out.println(storedValues);
-		System.out.println(div);
-		 
-		System.out.println("### Creating MainAlgorithm object.");
-		MainAlgorithm rec = new MainAlgorithm(storedValues);
-		System.out.println(div);
-
-		System.out.println("### Current query is:\n");
-		System.out.println(query);
-		System.out.println(div);
-		
-		System.out.println("### Query passed and processed.");
-		LinkedList<ResultValue> results = rec.processQuery(query);
-		System.out.println(div);
-
-		if (results.isEmpty()) {
-			System.out.println("### No results were found. Try a less restrictive query.");
-		} else {
-			if (results.size() < 5) {
-				System.out.println("### Only " + results.size() + " results were found.");
-				System.out.println("### Try a less restrictive query.\n");
-			} else {
-				System.out.println("### Found " + results.size() + ".\n");
-			}
-			
-			System.out.println("### Results:\n");
-			System.out.println(results);
-		}
-
+		return new RcmRequestWrapper(query, storedValues);
 	}
 }
