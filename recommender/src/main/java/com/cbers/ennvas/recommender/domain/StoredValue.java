@@ -5,13 +5,17 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * Represents a stored (persistent) value of a product.
+ * Represents a stored value of a product.
+ * 
+ * Uses Jackson annotations.
+ * @see https://github.com/FasterXML/jackson-docs
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -37,6 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 public class StoredValue
 {
+
 	/**
 	 * @var Product name
 	 */
@@ -138,6 +143,7 @@ public class StoredValue
 	 * @param description
 	 * @param rating
 	 */
+	@JsonIgnore
 	public StoredValue(
 		String name,
 		String type,
@@ -159,6 +165,20 @@ public class StoredValue
 		this.stock = stock;
 		this.description = description;
 		this.rating = rating;
+	}
+
+	@JsonCreator
+	public StoredValue()
+	{
+		this.name = "";
+		this.type = "";
+		this.brand = "";
+		this.price = 0;
+		this.shippingPrice = 0;
+		this.shippingTime = 0;
+		this.stock = 0;
+		this.description = "";
+		this.rating = 0;
 	}
 	
 	/**

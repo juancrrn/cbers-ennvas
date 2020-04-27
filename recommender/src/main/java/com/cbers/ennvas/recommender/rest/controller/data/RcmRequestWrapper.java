@@ -11,6 +11,21 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Wraps a request with a Query and a list of StoredValues (knowledgebase).
+ * 
+ * Uses Jackson annotations.
+ * @see https://github.com/FasterXML/jackson-docs
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
+ * 
+ * @version 0.1
+ */
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "query",
@@ -25,11 +40,18 @@ public class RcmRequestWrapper
 	@JsonProperty("stored_values")
 	private List<StoredValue> storedValues = null;
 
-	@JsonCreator
+	@JsonIgnore
 	public RcmRequestWrapper(Query query, List<StoredValue> storedValues)
 	{
 		this.query = query;
 		this.storedValues = storedValues;
+	}
+
+	@JsonCreator
+	public RcmRequestWrapper()
+	{
+		this.query = new Query();
+		this.storedValues = new LinkedList<StoredValue>();
 	}
 
     @JsonProperty("query")
@@ -54,6 +76,11 @@ public class RcmRequestWrapper
         this.storedValues = storedValues;
     }
 
+	/**
+	 * Generates a demo request.
+	 * 
+	 * @return demo request
+	 */
 	@JsonIgnore
 	public static RcmRequestWrapper demoRequest()
 	{

@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 /**
  * Represents a query to the recommender.
  * 
+ * Uses Jackson annotations.
+ * @see https://github.com/FasterXML/jackson-docs
+ * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
@@ -107,7 +110,7 @@ public class Query
 	 * @param available
 	 * @param minRating
 	 */
-	@JsonCreator
+	@JsonIgnore
 	public Query(
 		@JsonProperty("phrase") String phrase,
 		@JsonProperty("available") double priceMin,
@@ -125,6 +128,18 @@ public class Query
 		this.maxShippingTime = maxShippingTime;
 		this.available = available;
 		this.minRating = minRating;
+	}
+
+	@JsonCreator
+	public Query()
+	{
+		this.phrase = "";
+		this.priceMin = 0;
+		this.priceMax = 0;
+		this.freeShipping = false;
+		this.maxShippingTime = 0;
+		this.available = false;
+		this.minRating = 0;
 	}
 
 	@JsonProperty("phrase")

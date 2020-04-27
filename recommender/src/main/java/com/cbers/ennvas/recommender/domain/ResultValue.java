@@ -1,9 +1,13 @@
 package com.cbers.ennvas.recommender.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Represents a result of the recommender process.
+ * 
+ * Uses Jackson annotations.
+ * @see https://github.com/FasterXML/jackson-docs
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -16,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class ResultValue extends StoredValue
 {
+	
 	/**
 	 * Constructor based in a stored product.
 	 */
@@ -34,11 +39,20 @@ public class ResultValue extends StoredValue
 			s.getRating()
 		);
 		
-		this.utility = s.getUtility();
+		super.utility = s.getUtility();
 	}
 
-	// TODO: Añadir utility al JSON de StoredValue.
-	
+	/**
+	 * Allows Jackson to serialize a ResultValue with a utility value field.
+	 * 
+	 * @return utility value
+	 */
+	@JsonProperty("utility_value")
+	public double getUtilityValue()
+	{
+		return super.getUtility();
+	}
+
 	@Override
 	public String toString() {
 		String s =
@@ -50,4 +64,5 @@ public class ResultValue extends StoredValue
 			
 			return s;
 	}
+
 }

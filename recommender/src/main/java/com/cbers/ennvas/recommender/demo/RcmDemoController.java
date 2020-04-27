@@ -8,6 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Handles REST demo request and response generation.
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
+ * 
+ * @version 0.1
+ */
+
 @RestController
 @RequestMapping("/ennvas/rcm/demo")
 public class RcmDemoController

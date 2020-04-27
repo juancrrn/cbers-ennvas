@@ -1,18 +1,28 @@
 package com.cbers.ennvas.recommender.rest.controller;
 
 import java.util.LinkedList;
-//import java.util.List;
 
 import com.cbers.ennvas.recommender.domain.MainAlgorithm;
 import com.cbers.ennvas.recommender.domain.ResultValue;
 import com.cbers.ennvas.recommender.rest.controller.data.RcmRequestWrapper;
 import com.cbers.ennvas.recommender.rest.controller.data.RcmResponseWrapper;
 
-//import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Handles requests to the REST API.
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
+ * 
+ * @version 0.1
+ */
 
 @RestController
 @RequestMapping("/ennvas/rcm/rest")
@@ -24,6 +34,7 @@ public class RcmRestController
 	 * RcmRestController#passRequest.
 	 * 
 	 * @see https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestbody
+	 * @see https://github.com/FasterXML/jackson-docs
 	 * @see http://websystique.com/springmvc/spring-mvc-requestbody-responsebody-example/
 	 * @see https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#remoting
 	 * @see https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/custom-http-message-converter.html
