@@ -21,6 +21,7 @@ public class RcmApp
 
 	public static void main(String[] args)
 	{
+
 		SpringApplication.run(RcmApp.class, args);
 	}
 

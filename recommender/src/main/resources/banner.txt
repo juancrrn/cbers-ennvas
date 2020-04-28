@@ -1,0 +1,17 @@
+ ______                          
+|  ____|
+| |__   _ __  _ ____   ____ _ ___
+|  __| | '_ \| '_ \ \ / / _` / __|
+| |____| | | | | | \ V / (_| \__ 
+|______|_| |_|_| |_|\_/ \__,_|___/
+		
+Ennvas version 0.1 2020-04-28 19:00
+
+Recommender component core algorithm test
+
+By Juan Francisco Carrión Molina,
+Raquel Pérez González de Ossuna,
+Olga Posada Iglesias,
+Nicolás Pardina Popp and
+Melany Daniela Chicaiza Quezada.
+
