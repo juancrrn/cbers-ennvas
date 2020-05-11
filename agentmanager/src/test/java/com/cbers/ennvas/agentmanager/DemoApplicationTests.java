@@ -1,4 +1,4 @@
-package com.cbers.webcrawler;
+package com.cbers.ennvas.agentmanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
 @RestController
@@ -36,9 +36,7 @@ public class RcmDemoController
 	)
 	public RcmRequestWrapper demoGen()
 	{
-
 		return RcmRequestWrapper.demoRequest();
-
 	}
 
 	/**
@@ -53,11 +51,9 @@ public class RcmDemoController
 	)
 	public RcmResponseWrapper demoRun()
 	{
-
 		RcmRequestWrapper request = RcmRequestWrapper.demoRequest();
 
 		return RcmRestController.passRequest(request);
-
 	}
 
 }

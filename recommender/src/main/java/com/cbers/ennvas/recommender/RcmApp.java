@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
 @SpringBootApplication
@@ -21,8 +21,6 @@ public class RcmApp
 
 	public static void main(String[] args)
 	{
-
 		SpringApplication.run(RcmApp.class, args);
 	}
-
 }

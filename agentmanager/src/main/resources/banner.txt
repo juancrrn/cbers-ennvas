@@ -7,7 +7,7 @@
 		
 Ennvas version 0.0.2 2020-05-11 19:00
 
-Recommender component test
+Agent manager component test
 
 By Juan Francisco Carrión Molina,
 Raquel Pérez González de Ossuna,

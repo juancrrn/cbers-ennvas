@@ -3,16 +3,18 @@ package com.cbers.ennvas.recommender.rest.controller.data;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.cbers.ennvas.recommender.domain.Query;
-import com.cbers.ennvas.recommender.domain.StoredValue;
+import com.cbers.ennvas.recommender.domain.resource.Query;
+import com.cbers.ennvas.recommender.domain.resource.Product;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import lombok.Data;
+
 /**
- * Wraps a request with a Query and a list of StoredValues (knowledgebase).
+ * Wraps a request with a Query and a list of Product (knowledgebase).
  * 
  * Uses Jackson annotations.
  * @see https://github.com/FasterXML/jackson-docs
@@ -23,9 +25,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "query",
@@ -34,47 +37,23 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class RcmRequestWrapper
 {
 
-	@JsonProperty("query")
 	private Query query;
 
-	@JsonProperty("stored_values")
-	private List<StoredValue> storedValues = null;
+	private List<Product> products;
 
 	@JsonIgnore
-	public RcmRequestWrapper(Query query, List<StoredValue> storedValues)
+	public RcmRequestWrapper(Query query, List<Product> products)
 	{
 		this.query = query;
-		this.storedValues = storedValues;
+		this.products = products;
 	}
 
 	@JsonCreator
 	public RcmRequestWrapper()
 	{
 		this.query = new Query();
-		this.storedValues = new LinkedList<StoredValue>();
+		this.products = new LinkedList<Product>();
 	}
-
-    @JsonProperty("query")
-	public Query getQuery()
-	{
-		return this.query;
-	}
-
-    @JsonProperty("query")
-    public void setQuery(Query query) {
-        this.query = query;
-    }
-
-    @JsonProperty("stored_values")
-	public List<StoredValue> getStoredValues()
-	{
-		return this.storedValues;
-	}
-
-    @JsonProperty("stored_values")
-    public void setStoredValues(List<StoredValue> storedValues) {
-        this.storedValues = storedValues;
-    }
 
 	/**
 	 * Generates a demo request.
@@ -89,7 +68,7 @@ public class RcmRequestWrapper
 		 * Create example products and store them.
 		 */
 		
-		StoredValue v1 = new StoredValue(
+		Product v1 = new Product(
 			"Apple iPhone 11 (64 GB) - en Negro", // String name
 			"smartphone", // String type
 			"Apple", // String brand
@@ -101,7 +80,7 @@ public class RcmRequestWrapper
 			4.7 // double rating
 		);
 
-		StoredValue v2 = new StoredValue(
+		Product v2 = new Product(
 			"Samsung Galaxy 10+",
 			"smartphone",
 			"Samsung",
@@ -113,7 +92,7 @@ public class RcmRequestWrapper
 			4.6
 		);
 
-		StoredValue v3 = new StoredValue(
+		Product v3 = new Product(
 			"Frozen 2",
 			"DVD, movies, children",
 			"Disney",
@@ -125,7 +104,7 @@ public class RcmRequestWrapper
 			0
 		);
 
-		StoredValue v4 = new StoredValue(
+		Product v4 = new Product(
 			"Animal Crossing: New Horizons",
 			"videogame",
 			"Nintendo",
@@ -137,7 +116,7 @@ public class RcmRequestWrapper
 			5
 		);
 		
-		StoredValue v5 = new StoredValue(
+		Product v5 = new Product(
 			"Toshiba Canvio Basics", 
 			"electronics computer parts hdd", 
 			"Toshiba",
@@ -149,7 +128,7 @@ public class RcmRequestWrapper
 			4.6
 		);
 
-		StoredValue v6 = new StoredValue(
+		Product v6 = new Product(
 			"Virus!",
 			"card games",
 			"Tranjis Games",
@@ -162,7 +141,7 @@ public class RcmRequestWrapper
 
 		);
 
-		StoredValue v7 = new StoredValue(
+		Product v7 = new Product(
 			"El Principito",
 			"books classics",
 			"Salamandra",
@@ -174,7 +153,7 @@ public class RcmRequestWrapper
 			4.7
 		);
 
-		StoredValue v8 = new StoredValue(
+		Product v8 = new Product(
 			"Casio Reloj Vintage",
 			"digital watch",
 			"Casio",
@@ -186,7 +165,7 @@ public class RcmRequestWrapper
 			4.6
 		);
 
-		StoredValue v9 = new StoredValue(
+		Product v9 = new Product(
 			"Entrada 18 JSY",
 			"football tshirt sports clothes",
 			"Adidas",
@@ -198,7 +177,7 @@ public class RcmRequestWrapper
 			4.5
 		);
 
-		List<StoredValue> storedValues = new LinkedList<StoredValue>();
+		List<Product> storedValues = new LinkedList<Product>();
 		storedValues.add(v1);
 		storedValues.add(v2);
 		storedValues.add(v3);
@@ -215,12 +194,12 @@ public class RcmRequestWrapper
 
 		Query query = new Query(
 			"Apple iPhone 11 (64 GB) hey - - en Negro",
+			true, // Disponible
+			true, // Envío gratuito
 			300.0,
 			400.0,
-			true, // Envío gratuito
 			7, // Tiempo máximo de entrega en días
-			true, // Disponible
-			3 // Rating
+			3.0 // Rating
 		);
 
 		return new RcmRequestWrapper(query, storedValues);

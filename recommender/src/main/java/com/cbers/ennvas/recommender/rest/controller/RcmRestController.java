@@ -3,7 +3,8 @@ package com.cbers.ennvas.recommender.rest.controller;
 import java.util.LinkedList;
 
 import com.cbers.ennvas.recommender.domain.MainAlgorithm;
-import com.cbers.ennvas.recommender.domain.ResultValue;
+import com.cbers.ennvas.recommender.domain.resource.ResponseProduct;
+
 import com.cbers.ennvas.recommender.rest.controller.data.RcmRequestWrapper;
 import com.cbers.ennvas.recommender.rest.controller.data.RcmResponseWrapper;
 
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
 @RestController
@@ -51,9 +52,7 @@ public class RcmRestController
 	)
 	public RcmResponseWrapper process(@RequestBody RcmRequestWrapper request)
 	{
-
 		return RcmRestController.passRequest(request);
-
 	}
 
 	/**
@@ -65,16 +64,13 @@ public class RcmRestController
 	 */
 	public static RcmResponseWrapper passRequest(RcmRequestWrapper request)
 	{
+		MainAlgorithm rec = new MainAlgorithm(request.getProducts());
 
-		MainAlgorithm rec = new MainAlgorithm(request.getStoredValues());
-
-		LinkedList<ResultValue> results =
-			(LinkedList<ResultValue>) rec.processQuery(request.getQuery());
+		LinkedList<ResponseProduct> results =
+			(LinkedList<ResponseProduct>) rec.processQuery(request.getQuery());
 
 		RcmResponseWrapper response = new RcmResponseWrapper(results);
 	
 		return response;
-
 	}
-
 }

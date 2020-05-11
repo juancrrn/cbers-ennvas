@@ -2,14 +2,16 @@ package com.cbers.ennvas.recommender.rest.controller.data;
 
 import java.util.LinkedList;
 
-import com.cbers.ennvas.recommender.domain.ResultValue;
+import com.cbers.ennvas.recommender.domain.resource.ResponseProduct;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import lombok.Data;
+
 /**
- * Wraps a response with a list of ResultValues.
+ * Wraps a response with a list of ResponseProducts.
  * 
  * Uses Jackson annotations.
  * @see https://github.com/FasterXML/jackson-docs
@@ -20,9 +22,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "result_values"
@@ -30,19 +33,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class RcmResponseWrapper
 {
 
-	@JsonProperty("result_values")
-	private LinkedList<ResultValue> resultValues;
+	private LinkedList<ResponseProduct> responseProducts;
 
 	@JsonIgnore
-	public RcmResponseWrapper(LinkedList<ResultValue> resultValues)
+	public RcmResponseWrapper(LinkedList<ResponseProduct> responseProducts)
 	{
-		this.resultValues = resultValues;
+		this.responseProducts = responseProducts;
 	}
-
-	@JsonProperty("result_values")
-	public LinkedList<ResultValue> getResultValues()
-	{
-		return this.resultValues;
-	}
-
 }
