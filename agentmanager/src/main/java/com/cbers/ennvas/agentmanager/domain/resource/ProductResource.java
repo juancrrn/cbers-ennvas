@@ -1,11 +1,6 @@
 package com.cbers.ennvas.agentmanager.domain.resource;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import lombok.AllArgsConstructor;
@@ -13,10 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Represents a stored value of a product.
- * 
- * Uses Jackson annotations.
- * @see https://github.com/FasterXML/jackson-docs
+ * Represents a persistent value of a Product.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -24,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.1
+ * @version 0.0.2
  */
 
 @Data
