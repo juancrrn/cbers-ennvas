@@ -3,6 +3,7 @@ package com.cbers.ennvas.agentmanager.persistence.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -91,6 +92,7 @@ public class ProductEntity
 	/**
 	 * @var Product description
 	 */
+	@Lob
 	private String description;
 	
 	/**

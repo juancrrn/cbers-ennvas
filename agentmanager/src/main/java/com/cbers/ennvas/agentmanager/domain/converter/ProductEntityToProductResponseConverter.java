@@ -4,7 +4,9 @@ import com.cbers.ennvas.agentmanager.persistence.entity.ProductEntity;
 import com.cbers.ennvas.agentmanager.rest.controller.data.UniqueProductResponse;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductEntityToProductResponseConverter
 	implements Converter<ProductEntity, UniqueProductResponse>
 {

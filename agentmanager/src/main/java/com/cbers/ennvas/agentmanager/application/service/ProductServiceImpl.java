@@ -9,13 +9,17 @@ import com.cbers.ennvas.agentmanager.persistence.repository.ProductRepository;
 import com.cbers.ennvas.agentmanager.rest.controller.data.ProductResponse;
 import com.cbers.ennvas.agentmanager.rest.controller.data.UniqueProductResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService
 {
 
+	@Autowired
 	private ProductRepository repository;
+	
+	@Autowired
 	private ProductEntityToProductResponseConverter entityToResponseConverter;
 
 	@Override
@@ -23,10 +27,13 @@ public class ProductServiceImpl implements ProductService
 		ProductResponse response = new ProductResponse();
 
 		List<ProductEntity> allProducts = repository.findAll();
-		List<UniqueProductResponse> uniqueProductsList = allProducts.stream().map(e -> entityToResponseConverter.convert(e)).collect(Collectors.toList());
+		List<UniqueProductResponse> uniqueProductsList = allProducts
+			.stream()
+			.map(e -> entityToResponseConverter.convert(e))
+			.collect(Collectors.toList());
+
 		response.setProducts(uniqueProductsList);
 		
 		return response;
 	}
-	
 }
