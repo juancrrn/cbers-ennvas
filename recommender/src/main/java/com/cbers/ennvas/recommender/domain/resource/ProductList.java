@@ -1,8 +1,6 @@
-package com.cbers.ennvas.recommender.rest.controller.data;
+package com.cbers.ennvas.recommender.domain.resource;
 
-import java.util.LinkedList;
-
-import com.cbers.ennvas.recommender.domain.resource.ResponseProduct;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,18 +24,14 @@ import lombok.Data;
  */
 
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "result_values"
-})
-public class RcmResponseWrapper
+public class ProductList
 {
 
-	private LinkedList<ResponseProduct> responseProducts;
+	private List<Product> products;
 
 	@JsonIgnore
-	public RcmResponseWrapper(LinkedList<ResponseProduct> responseProducts)
+	public ProductList(List<Product> products)
 	{
-		this.responseProducts = responseProducts;
+		this.products = products;
 	}
 }

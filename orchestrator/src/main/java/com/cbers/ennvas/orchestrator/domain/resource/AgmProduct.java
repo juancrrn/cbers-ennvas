@@ -1,4 +1,4 @@
-package com.cbers.ennvas.recommender.domain.resource;
+package com.cbers.ennvas.orchestrator.domain.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -32,10 +32,11 @@ import lombok.NoArgsConstructor;
     "stock",
     "description",
     "rating",
+    "available",
     "shipping_price",
     "shipping_time"
 })
-public class Product
+public class AgmProduct
 {
 
 	/**
@@ -59,6 +60,18 @@ public class Product
 	private double price;
 	
 	/**
+	 * @var Product shipping price
+	 */
+	private double shippingPrice;
+	
+	/**
+	 * @var Product shipping time
+	 * 
+	 * Measured in days.
+	 */
+	private int shippingTime;
+	
+	/**
 	 * @var Product stock
 	 *  
 	 * Measured in product units.
@@ -76,40 +89,6 @@ public class Product
 	 * In range 0.0 to 5.0.
 	 */
 	private double rating;
-	
-	/**
-	 * @var Product shipping price
-	 */
-	private double shippingPrice;
-	
-	/**
-	 * @var Product shipping time
-	 * 
-	 * Measured in days.
-	 */
-	private int shippingTime;
-	
-	/**
-	 * @var Product utility
-	 * 
-	 * Calculated statically and on demand.
-	 */
-	@JsonIgnore
-	private double utility;
-
-	public Product(Product p)
-	{
-		this.brand = p.brand;
-		this.description = p.description;
-		this.name = p.name;
-		this.price = p.price;
-		this.rating = p.rating;
-		this.shippingPrice = p.shippingPrice;
-		this.shippingTime = p.shippingTime;
-		this.stock = p.stock;
-		this.type = p.type;
-		this.utility = p.utility;
-	}
 
 	@JsonIgnore
 	public boolean isShippingFree() {
@@ -120,20 +99,4 @@ public class Product
 	public boolean isAvailable() {
 		return this.stock > 0;
 	}
-	
-	@Override
-	public String toString()
-	{
-		return "[\n" +
-		"  name: " + this.getName() + ",\n" +
-		"  type: " + this.getType() + ",\n" +
-		"  brand: " + this.getBrand() + ",\n" +
-		"  price: " + this.getPrice() + ",\n" +
-		"  stock: " + this.getStock() + ",\n" +
-		"  description: " + this.getDescription() + ",\n" +
-		"  rating: " + this.getRating() + ",\n" +
-		"  shippingPrice: " + this.getShippingPrice() + ",\n" +
-		"  shippingTime: " + this.getShippingTime() + ",\n" +
-		"]";
-	}
-} 
+}

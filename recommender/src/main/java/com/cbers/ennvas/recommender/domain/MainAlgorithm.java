@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.cbers.ennvas.recommender.domain.resource.Product;
 import com.cbers.ennvas.recommender.domain.resource.Query;
-import com.cbers.ennvas.recommender.domain.resource.ResponseProduct;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -42,7 +41,7 @@ public class MainAlgorithm
 	 */
 	@Setter
 	@Getter
-	private List<ResponseProduct> responseProducts;
+	private List<Product> products;
 
 	/**
 	 * Constructs an algorithm object with a knowledge base and pre-initializes 
@@ -52,10 +51,10 @@ public class MainAlgorithm
 	 */
 	public MainAlgorithm(List<Product> products)
 	{
-		this.responseProducts = new LinkedList<ResponseProduct>();
+		this.products = new LinkedList<Product>();
 
 		for (Product product : products) {
-			this.responseProducts.add(new ResponseProduct(product));
+			this.products.add(new Product(product));
 		}
 	}
 
@@ -66,13 +65,13 @@ public class MainAlgorithm
 	 * 
 	 * @return Result list
 	 */
-	public List<ResponseProduct> processQuery(Query query)
+	public List<Product> processQuery(Query query)
 	{
 		/**
 		 * Pre-calculate all products' utility based on the query.
 		 */
 
-		for (ResponseProduct rp : responseProducts) {
+		for (Product rp : this.products) {
 			double utility = UtilityFunction.calculate(rp, query);
 			rp.setUtility(utility);
 		}
@@ -81,7 +80,7 @@ public class MainAlgorithm
 		 * Sort the knowledge base products by their utility.
 		 */
 
-		this.responseProducts.sort(Comparator.comparingDouble(ResponseProduct:: getUtility).reversed());
+		this.products.sort(Comparator.comparingDouble(Product:: getUtility).reversed());
 		
 		/**
 		 * Take the first FIRST_X_ELEMENTS elements, that is, those whose
@@ -93,11 +92,11 @@ public class MainAlgorithm
 		 * to ResponseProduct objects.
 		 */
 
-		List<ResponseProduct> returnValues = new LinkedList<ResponseProduct>();
+		List<Product> returnValues = new LinkedList<Product>();
 		
-		for (int i = 0; i < FIRST_X_ELEMENTS && i < responseProducts.size(); i++) {
-			if (responseProducts.get(i).getUtility() >= MINIMUM_UTILITY) {
-				returnValues.add(new ResponseProduct(responseProducts.get(i)));
+		for (int i = 0; i < FIRST_X_ELEMENTS && i < this.products.size(); i++) {
+			if (this.products.get(i).getUtility() >= MINIMUM_UTILITY) {
+				returnValues.add(new Product(products.get(i)));
 			}
 		}
 

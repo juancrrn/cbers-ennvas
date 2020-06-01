@@ -1,12 +1,13 @@
 package com.cbers.ennvas.recommender.rest.controller;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import com.cbers.ennvas.recommender.domain.MainAlgorithm;
-import com.cbers.ennvas.recommender.domain.resource.ResponseProduct;
+import com.cbers.ennvas.recommender.domain.resource.Product;
+import com.cbers.ennvas.recommender.domain.resource.ProductList;
 
 import com.cbers.ennvas.recommender.rest.controller.data.RcmRequestWrapper;
-import com.cbers.ennvas.recommender.rest.controller.data.RcmResponseWrapper;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,8 +51,10 @@ public class RcmRestController
 		consumes = "application/json",
 		produces = "application/json"
 	)
-	public RcmResponseWrapper process(@RequestBody RcmRequestWrapper request)
+	public ProductList process(@RequestBody RcmRequestWrapper request)
 	{
+		System.out.println("[ENNVAS-RCM] Received query process request.");
+
 		return RcmRestController.passRequest(request);
 	}
 
@@ -62,14 +65,36 @@ public class RcmRestController
 	 * 
 	 * @return Response wrapper with the result values.
 	 */
-	public static RcmResponseWrapper passRequest(RcmRequestWrapper request)
+	public static ProductList passRequest(RcmRequestWrapper request)
 	{
+		System.out.println("[ENNVAS-RCM] Received query:\n");
+		System.out.println(request.getQuery());
+		System.out.println("");
+
+		System.out.println("[ENNVAS-RCM] Received knowledgebase products:\n");
+
+		for (int i = 0; i < request.getProducts().size(); i++) {
+			System.out.println(request.getProducts().get(i));
+			System.out.println("");
+		}
+
 		MainAlgorithm rec = new MainAlgorithm(request.getProducts());
 
-		LinkedList<ResponseProduct> results =
-			(LinkedList<ResponseProduct>) rec.processQuery(request.getQuery());
+		List<Product> results =
+			(LinkedList<Product>) rec.processQuery(request.getQuery());
 
-		RcmResponseWrapper response = new RcmResponseWrapper(results);
+		System.out.println("[ENNVAS-RCM] Algorithm result products:\n");
+
+		for (int i = 0; i < results.size(); i++) {
+			System.out.println(results.get(i));
+			System.out.println("");
+		}
+
+		System.out.println("[ENNVAS-RCM] Query processed correctly.\n");
+
+		ProductList response = new ProductList(results);
+
+		System.out.println("[ENNVAS-RCM] Sending query process results.\n");
 	
 		return response;
 	}

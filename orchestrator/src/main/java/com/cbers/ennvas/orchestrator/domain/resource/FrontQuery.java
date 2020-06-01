@@ -1,4 +1,4 @@
-package com.cbers.ennvas.recommender.domain.resource;
+package com.cbers.ennvas.orchestrator.domain.resource;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,9 +32,9 @@ import lombok.NoArgsConstructor;
     "max_shipping_time",
     "min_rating"
 })
-public class Query
+public class FrontQuery
 {
-
+    
 	/**
 	 * @var Query phrase
 	 * 
@@ -92,18 +92,4 @@ public class Query
 	 * Default value: 0.
 	 */
 	private double minRating;
-	
-	@Override
-	public String toString()
-	{
-		return "[\n" +
-		"  phrase: " + this.getPhrase() + ",\n" +
-		"  available: " + this.isAvailable() + ",\n" +
-		"  freeShipping: " + this.isFreeShipping() + ",\n" +
-		"  priceMin: " + this.priceMin + ",\n" +
-		"  priceMax: " + this.getPriceMax() + ",\n" +
-		"  maxShippingTime: " + this.getMaxShippingTime() + ",\n" +
-		"  minRating: " + this.getMinRating() + ",\n" +
-		"]";
-	}
 }

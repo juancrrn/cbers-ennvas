@@ -60,24 +60,24 @@ public class RcmRequestWrapper
 	 * 
 	 * @return demo request
 	 */
-	@JsonIgnore
+	/*@JsonIgnore
 	public static RcmRequestWrapper demoRequest()
-	{
+	{*/
 
 		/*
 		 * Create example products and store them.
 		 */
-		
+/*
 		Product v1 = new Product(
 			"Apple iPhone 11 (64 GB) - en Negro", // String name
 			"smartphone", // String type
 			"Apple", // String brand
 			793.99, // double price
-			0, // double shippingPrice
-			20, // int shippingTime
 			568, // int stock
 			"Pantalla LCD Liquid Retina HD de 6,1 pulgadas, Resistencia al agua y al polvo (2 metros hasta 30 minutos, IP68), Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular; modo Noche, modo Retrato y vídeo 4K hasta 60 f/s, Cámara frontal TrueDepth de 12 Mpx con modo Retrato, vídeo 4K y ,grabación a cámara lenta, Face ID para autenticarse deforma segura yusar ApplePay, Chip A13 Bionic con Neural Engine de 3.ª generación, Admite la carga rápida Carga inalámbrica", // String description
-			4.7 // double rating
+			4.7, // double rating.
+			0, // double shippingPrice
+			20 // int shippingTime
 		);
 
 		Product v2 = new Product(
@@ -187,12 +187,12 @@ public class RcmRequestWrapper
 		storedValues.add(v7);
 		storedValues.add(v8);
 		storedValues.add(v9);
-
+*/
 		/*
 		 * Create example query.
 		 */
 
-		Query query = new Query(
+	/*	Query query = new Query(
 			"Apple iPhone 11 (64 GB) hey - - en Negro",
 			true, // Disponible
 			true, // Envío gratuito
@@ -203,5 +203,5 @@ public class RcmRequestWrapper
 		);
 
 		return new RcmRequestWrapper(query, storedValues);
-	}
+	}*/
 }

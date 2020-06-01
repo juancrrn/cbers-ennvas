@@ -20,6 +20,10 @@ public class AgmRestController
 	@GetMapping(value="/retrieve", produces = "application/json")
 	public ResponseEntity<ProductResponse> retrieve()
 	{
+		System.out.println("[ENNVAS-AGM] Received product data request.");
+
+		System.out.println("[ENNVAS-AGM] Sengind product data.");
+
 		return ResponseEntity.ok(service.getAllProducts());
 	}
 }
