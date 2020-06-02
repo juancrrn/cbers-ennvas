@@ -1,12 +1,7 @@
 package com.cbers.ennvas.agentmanager.demo;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import com.cbers.ennvas.agentmanager.persistence.entity.ProductEntity;
 import com.cbers.ennvas.agentmanager.persistence.repository.ProductRepository;
-import com.google.gson.Gson;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,12 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController
 {
 
-    /**
-     * Demo data JSON file path.
-     */
-    private static final String DEMO_DATA_JSON_PATH =
-        "src/main/resources/demo/demo-products.json";
-
     @Autowired
     private ProductRepository productRepository;
 
@@ -48,21 +37,7 @@ public class DemoController
 
         // Retrieve demo data.
 
-        String jsonData = "";
-		
-		try {
-            jsonData =
-                new String(Files.readAllBytes(Paths.get(DEMO_DATA_JSON_PATH)));
-		} catch (IOException e) {
-			e.printStackTrace();
-        }
-        
-        System.out.println("[ENNVAS-AGM] JSON demo data retrieved successfully.");
-		
-		Gson gson = new Gson();
-		
-        ProductEntity[] productArray =
-            gson.fromJson(jsonData, ProductEntity[].class);
+        ProductEntity[] productArray = DemoGenerator.generate();
         
         // Insert demo data.
 

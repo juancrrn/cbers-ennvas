@@ -23,7 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 
 @SpringBootTest
-public class AgmTest
+public class AgmDependencyInjectionTest
 {
     
     @Autowired
@@ -48,6 +48,8 @@ public class AgmTest
     @Test
     public void contextLoads() throws Exception
     {
+        System.out.println("[ENNVAS-AGM][AgmDependencyInjectionTest] Assertions.");
+        
         assertThat(agmRestController).isNotNull();
         assertThat(productRepository).isNotNull();
         assertThat(productServiceImpl).isNotNull();
