@@ -78,7 +78,13 @@ public class RcmRestController
 			System.out.println("");
 		}
 
+		/**
+		 * Instantiate algorithm.
+		 */
+
 		MainAlgorithm rec = new MainAlgorithm(request.getProducts());
+
+		
 
 		List<Product> results =
 			(LinkedList<Product>) rec.processQuery(request.getQuery());

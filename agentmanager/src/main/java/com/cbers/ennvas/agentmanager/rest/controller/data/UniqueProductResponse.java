@@ -2,58 +2,73 @@ package com.cbers.ennvas.agentmanager.rest.controller.data;
 
 import lombok.Data;
 
+/**
+ * TODO Describe this class
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * 
+ * @version 1.0.0
+ */
+
 @Data
 public class UniqueProductResponse
 {
 
 	/**
-	 * @var Product name
+	 * Name.
 	 */
 	private String name;
 	
 	/**
-	 * @var Product type
+	 * Type.
 	 */
 	private String type;
 	
 	/**
-	 * @var Product brand
+	 * Brand.
 	 */
 	private String brand;
 	
 	/**
-	 * @var Product price
+	 * Price (in euros).
 	 */
 	private double price;
 	
 	/**
-	 * @var Product shipping price
-	 */
-	private double shippingPrice;
-	
-	/**
-	 * @var Product shipping time
-	 * 
-	 * Measured in days.
-	 */
-	private int shippingTime;
-	
-	/**
-	 * @var Product stock
-	 *  
-	 * Measured in product units.
+	 * Stock (in units).
 	 */
 	private int stock;
 	
 	/**
-	 * @var Product description
-	 */
-	private String description;
-	
-	/**
-	 * @var Product rating.
-	 * 
-	 * In range 0.0 to 5.0.
+	 * Rating (in range 0.0 to 5.0).
 	 */
 	private double rating;
+	
+	/**
+	 * Shipping price (in euros).
+	 */
+	private double shippingPrice;
+	
+	/**
+	 * Shipping time (in days).
+	 */
+	private int shippingTime;
+	
+	/**
+	 * Description.
+	 */
+	private String description;
+
+	/**
+	 * Provider name (store).
+	 */
+	private String providerName;
+
+	/**
+	 * Provider unique URL (product URL).
+	 */
+	private String providerUniqueUrl;
 }

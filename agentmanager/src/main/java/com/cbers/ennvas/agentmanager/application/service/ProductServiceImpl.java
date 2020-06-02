@@ -12,6 +12,17 @@ import com.cbers.ennvas.agentmanager.rest.controller.data.UniqueProductResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * TODO Describe this class
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * 
+ * @version 1.0.0
+ */
+
 @Service
 public class ProductServiceImpl implements ProductService
 {
@@ -22,6 +33,9 @@ public class ProductServiceImpl implements ProductService
 	@Autowired
 	private ProductEntityToProductResponseConverter entityToResponseConverter;
 
+	/**
+	 * TODO Describe this method
+	 */
 	@Override
 	public ProductResponse getAllProducts() {
 		ProductResponse response = new ProductResponse();

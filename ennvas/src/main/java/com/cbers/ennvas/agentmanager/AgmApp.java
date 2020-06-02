@@ -10,8 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 1.0.0
+ * @version 0.0.2
  */
 
 @SpringBootApplication

@@ -9,6 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * TODO Describe this class
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * 
+ * @version 1.0.0
+ */
+
 @RestController
 @RequestMapping("/ennvas/agm/rest")
 public class AgmRestController
@@ -17,6 +28,11 @@ public class AgmRestController
 	@Autowired
 	private ProductServiceImpl service;
 
+	/**
+	 * TODO Describe this method
+	 * 
+	 * @return
+	 */
 	@GetMapping(value="/retrieve", produces = "application/json")
 	public ResponseEntity<ProductResponse> retrieve()
 	{

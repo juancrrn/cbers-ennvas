@@ -1,8 +1,5 @@
 package com.cbers.ennvas.agentmanager.domain.resource;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,76 +13,67 @@ import lombok.NoArgsConstructor;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-    "name",
-    "type",
-    "brand",
-    "price",
-    "stock",
-    "description",
-    "rating",
-    "available",
-    "shipping_price",
-    "shipping_time"
-})
 public class ProductResource
 {
 
 	/**
-	 * @var Product name
+	 * Name.
 	 */
 	private String name;
 	
 	/**
-	 * @var Product type
+	 * Type.
 	 */
 	private String type;
 	
 	/**
-	 * @var Product brand
+	 * Brand.
 	 */
 	private String brand;
 	
 	/**
-	 * @var Product price
+	 * Price (in euros).
 	 */
 	private double price;
 	
 	/**
-	 * @var Product shipping price
-	 */
-	private double shippingPrice;
-	
-	/**
-	 * @var Product shipping time
-	 * 
-	 * Measured in days.
-	 */
-	private int shippingTime;
-	
-	/**
-	 * @var Product stock
-	 *  
-	 * Measured in product units.
+	 * Stock (in units).
 	 */
 	private int stock;
 	
 	/**
-	 * @var Product description
-	 */
-	private String description;
-	
-	/**
-	 * @var Product rating.
-	 * 
-	 * In range 0.0 to 5.0.
+	 * Rating (in range 0.0 to 5.0).
 	 */
 	private double rating;
+	
+	/**
+	 * Shipping price (in euros).
+	 */
+	private double shippingPrice;
+	
+	/**
+	 * Shipping time (in days).
+	 */
+	private int shippingTime;
+	
+	/**
+	 * Description.
+	 */
+	private String description;
+
+	/**
+	 * Provider name (store).
+	 */
+	private String providerName;
+
+	/**
+	 * Provider unique URL (product URL).
+	 */
+	private String providerUniqueUrl;
 }
