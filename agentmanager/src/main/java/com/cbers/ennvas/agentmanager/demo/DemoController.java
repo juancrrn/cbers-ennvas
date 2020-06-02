@@ -36,7 +36,7 @@ public class DemoController
         "src/main/resources/demo/demo-products.json";
 
     @Autowired
-    private ProductRepository repository;
+    private ProductRepository productRepository;
 
     /**
      * Populates the database with demo data from a JSON file.
@@ -67,7 +67,7 @@ public class DemoController
         // Insert demo data.
 
         for (int i = 0; i < productArray.length; i++) {
-            repository.save(productArray[i]);
+            productRepository.save(productArray[i]);
         }
 
         System.out.println("[ENNVAS-AGM] Completed demo data generation.");

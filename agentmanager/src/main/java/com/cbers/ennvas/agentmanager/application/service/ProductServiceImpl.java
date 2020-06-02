@@ -28,10 +28,10 @@ public class ProductServiceImpl implements ProductService
 {
 
 	@Autowired
-	private ProductRepository repository;
+	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductEntityToProductResponseConverter entityToResponseConverter;
+	private ProductEntityToProductResponseConverter productEntityToProductResponseConverter;
 
 	/**
 	 * TODO Describe this method
@@ -40,10 +40,10 @@ public class ProductServiceImpl implements ProductService
 	public ProductResponse getAllProducts() {
 		ProductResponse response = new ProductResponse();
 
-		List<ProductEntity> allProducts = repository.findAll();
+		List<ProductEntity> allProducts = productRepository.findAll();
 		List<UniqueProductResponse> uniqueProductsList = allProducts
 			.stream()
-			.map(e -> entityToResponseConverter.convert(e))
+			.map(e -> productEntityToProductResponseConverter.convert(e))
 			.collect(Collectors.toList());
 
 		response.setProducts(uniqueProductsList);

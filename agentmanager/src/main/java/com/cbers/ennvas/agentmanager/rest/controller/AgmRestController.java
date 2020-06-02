@@ -26,7 +26,7 @@ public class AgmRestController
 {
 
 	@Autowired
-	private ProductServiceImpl service;
+	private ProductServiceImpl productServiceImpl;
 
 	/**
 	 * TODO Describe this method
@@ -40,6 +40,6 @@ public class AgmRestController
 
 		System.out.println("[ENNVAS-AGM] Sengind product data.");
 
-		return ResponseEntity.ok(service.getAllProducts());
+		return ResponseEntity.ok(productServiceImpl.getAllProducts());
 	}
 }
