@@ -5,12 +5,13 @@
 | |____| | | | | | \ V / (_| \__ 
 |______|_| |_|_| |_|\_/ \__,_|___/
 		
-Ennvas version 0.0.2 2020-05-11 19:00
+Ennvas version 1.0.0
 
-Recommender component test
+Recommender component
 
 By Juan Francisco Carrión Molina,
 Raquel Pérez González de Ossuna,
-Olga Posada Iglesias,
-Nicolás Pardina Popp and
-Melany Daniela Chicaiza Quezada.
+Olga Posada Iglesias and
+Nicolás Pardina Popp.
+
+Running...

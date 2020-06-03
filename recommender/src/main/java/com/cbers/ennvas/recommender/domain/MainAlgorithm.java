@@ -18,26 +18,25 @@ import java.util.Comparator;
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
- * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 public class MainAlgorithm
 {
 
 	/**
-	 * @var Result elements to show the user. 
+	 * Number of result elements to respond with.
 	 */
-	private static final int FIRST_X_ELEMENTS = 6;
+	private int minimumUtility;
 	
 	/**
-	 * @var Minimum accepted utility for the results.
+	 * Minimum accepted utility for the results.
 	 */
-	private static final int MINIMUM_UTILITY = 1;
+	private int firstXElements;
 
 	/**
-	 * @var Knowledge base.
+	 * Knowledge base.
 	 */
 	@Setter
 	@Getter
@@ -47,11 +46,13 @@ public class MainAlgorithm
 	 * Constructs an algorithm object with a knowledge base and pre-initializes 
 	 * response products.
 	 * 
-	 * @param products Knowledge base
+	 * @param products Knowledge base.
 	 */
-	public MainAlgorithm(List<Product> products)
+	public MainAlgorithm(List<Product> products, int minimumUtility, int firstXElements)
 	{
 		this.products = new LinkedList<Product>();
+		this.minimumUtility = minimumUtility;
+		this.firstXElements = firstXElements;
 
 		for (Product product : products) {
 			this.products.add(new Product(product));
@@ -61,13 +62,15 @@ public class MainAlgorithm
 	/**
 	 * Processes a query.
 	 * 
-	 * @param query Query to process
+	 * @param query Query to process.
 	 * 
-	 * @return Result list
+	 * @return Result list.
 	 */
 	public List<Product> processQuery(Query query)
 	{
-		/**
+		System.out.println("[ENNVAS-RCM] Processing query with minimum utility " + this.minimumUtility + " and first x elements " + this.firstXElements + ".");
+
+		/*
 		 * Pre-calculate all products' utility based on the query.
 		 */
 
@@ -76,13 +79,13 @@ public class MainAlgorithm
 			rp.setUtility(utility);
 		}
 
-		/**
+		/*
 		 * Sort the knowledge base products by their utility.
 		 */
 
 		this.products.sort(Comparator.comparingDouble(Product:: getUtility).reversed());
 		
-		/**
+		/*
 		 * Take the first FIRST_X_ELEMENTS elements, that is, those whose
 		 * utility value is higher.
 		 * 
@@ -94,13 +97,13 @@ public class MainAlgorithm
 
 		List<Product> returnValues = new LinkedList<Product>();
 		
-		for (int i = 0; i < FIRST_X_ELEMENTS && i < this.products.size(); i++) {
-			if (this.products.get(i).getUtility() >= MINIMUM_UTILITY) {
+		for (int i = 0; i < this.firstXElements && i < this.products.size(); i++) {
+			if (this.products.get(i).getUtility() >= this.minimumUtility) {
 				returnValues.add(new Product(products.get(i)));
 			}
 		}
 
-		/**
+		/*
 		 * Return result objects.
 		 */
 

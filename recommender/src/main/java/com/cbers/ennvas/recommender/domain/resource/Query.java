@@ -10,13 +10,16 @@ import lombok.NoArgsConstructor;
 /**
  * Represents a query to the recommender.
  * 
+ * Default values are used to decide if data is relevant in the utility 
+ * function. If value is default, data is ignored. See
+ * UtilityFunction#calculate.
+ * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
- * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 @Data
@@ -36,74 +39,53 @@ public class Query
 {
 
 	/**
-	 * @var Query phrase
-	 * 
-	 * May include name, type, brand and description.
+	 * Phrase. May include name, type, brand and description.
 	 */
 	private String phrase;
 	
 	/**
-	 * Default values are used to decide if data is relevant in
-	 * the utility function. If value is default, data is ignored.
-	 * 
-	 * @see UtilityFunction#calculate
-	 */
-	
-	/**
-	 * @var Query available.
-	 * 
-	 * Default value: false (accept both available and unavailable products).
+	 * Available. Default: false (accept both available and unavailable
+	 * products).
 	 */
 	private boolean available;
 	
 	/**
-	 * @var Query free shipping.
-	 * 
-	 * Default value: false.
+	 * Free shipping. Default: false (accept product with free and non-free 
+	 * shipping).
 	 */
 	private boolean freeShipping;
 	
 	/**
-	 * @var Query minimum price.
-	 * 
-	 * Default value: 0.0.
+	 * Minimum price. Default: 0.0 (no minimum).
 	 */
 	private double priceMin;
 	
 	/**
-	 * @var Query maximum price.
-	 * 
-	 * Default value: 0.0.
+	 * Maximum price. Default: 0.0 (no maximum).
 	 */
 	private double priceMax;
 	
 	/**
-	 * @var Query maximum shipping time.
-	 * 
-	 * Measured in days.
-	 * 
-	 * Default value: 0.
+	 * Maximum shipping time (in days). Default: 0 (no maximum).
 	 */
 	private int maxShippingTime;
 	
 	/**
-	 * @var Query minimum rating.
-	 * 
-	 * Default value: 0.
+	 * Minimum rating. Default: 0 (no minimum).
 	 */
 	private double minRating;
 	
 	@Override
 	public String toString()
 	{
-		return "[\n" +
-		"  phrase: " + this.getPhrase() + ",\n" +
-		"  available: " + this.isAvailable() + ",\n" +
-		"  freeShipping: " + this.isFreeShipping() + ",\n" +
-		"  priceMin: " + this.priceMin + ",\n" +
-		"  priceMax: " + this.getPriceMax() + ",\n" +
-		"  maxShippingTime: " + this.getMaxShippingTime() + ",\n" +
-		"  minRating: " + this.getMinRating() + ",\n" +
-		"]";
+		return "Query: [ " +
+		"phrase: " + this.phrase + ", " +
+		"available: " + this.available + ", " +
+		"freeShipping: " + this.freeShipping + ", " +
+		"priceMin: " + this.priceMin + ", " +
+		"priceMax: " + this.priceMax + ", " +
+		"maxShippingTime: " + this.maxShippingTime + ", " +
+		"minRating: " + this.minRating +
+		" ]";
 	}
 }

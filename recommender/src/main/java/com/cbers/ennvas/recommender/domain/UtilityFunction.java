@@ -10,22 +10,21 @@ import com.cbers.ennvas.recommender.domain.resource.Query;
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
- * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 public class UtilityFunction
 {
 
 	/**
-	 * @var Unicode characters to be replaced.
+	 * Unicode characters to be replaced.
 	 */
 	private static final String UNICODE =
 		"ÀàÈèÌìÒòÙùÁáÉéÍíÓóÚúÝýÂâÊêÎîÔôÛûŶŷÃãÕõÑñÄäËëÏïÖöÜüŸÿÅåÇçŐőŰű";
 	
 	/**
-	 * @var ASCII characters to replace with.
+	 * ASCII characters to replace with.
 	 */
 	private static final String PLAIN_ASCII =
 		"AaEeIiOoUuAaEeIiOoUuYyAaEeIiOoUuYyAaOoNnAaEeIiOoUuYyAaCcOoUu";
@@ -33,9 +32,9 @@ public class UtilityFunction
 	/**
 	 * Converts an Unicode string to plain ASCII.
 	 * 
-	 * @param str String to convert
+	 * @param str String to convert.
 	 * 
-	 * @return Converted string
+	 * @return Converted string.
 	 */
 	public static String strToAscii(String str) {
 	    if (str == null) {
@@ -58,17 +57,16 @@ public class UtilityFunction
 	}
 
 	/**
-	 * Utility function
+	 * Utility function.
 	 * 
 	 * Returns an utility value based on a query.
 	 * 
-	 * @param query Query base
+	 * @param query Query base.
 	 * 
-	 * @return Utility value
+	 * @return Utility value.
 	 */
 	public static double calculate(Product product, Query query)
 	{
-
 		double utility = 0;
 		
 		/*
@@ -91,7 +89,7 @@ public class UtilityFunction
 		}
 
 		/* Query free shipping. */
-		if (query.isFreeShipping() && ! product.isShippingFree()) {
+		if (query.isFreeShipping() && product.getShippingPrice() != 0) {
 			utility--;
 		}
 
@@ -101,7 +99,7 @@ public class UtilityFunction
 		}
 
 		/* Query available. */
-		if (query.isAvailable() && ! product.isAvailable()) {
+		if (query.isAvailable() && product.getStock() == 0) {
 			utility--;
 		}
 

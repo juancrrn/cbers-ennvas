@@ -7,8 +7,11 @@ import com.cbers.ennvas.recommender.domain.MainAlgorithm;
 import com.cbers.ennvas.recommender.domain.resource.Product;
 import com.cbers.ennvas.recommender.domain.resource.ProductList;
 
-import com.cbers.ennvas.recommender.rest.controller.data.RcmRequestWrapper;
+import com.cbers.ennvas.recommender.rest.controller.data.RcmRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,15 +24,17 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
- * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 @RestController
 @RequestMapping("/ennvas/rcm/rest")
 public class RcmRestController
 {
+
+	@Autowired
+	private ApplicationArguments applicationArguments;
 
 	/**
 	 * Receives a POST request and passes it as RcmRequestWrapper to 
@@ -42,7 +47,7 @@ public class RcmRestController
 	 * @see https://www.logicbig.com/tutorials/spring-framework/spring-web-mvc/custom-http-message-converter.html
 	 * @see https://www.baeldung.com/spring-httpmessageconverter-rest
 	 * 
-	 * @param input InputWrapper that contains a query and a knowledgebase.
+	 * @param input InputWrapper that contains a query and a knowledge base.
 	 * 
 	 * @return response body
 	 */
@@ -51,11 +56,27 @@ public class RcmRestController
 		consumes = "application/json",
 		produces = "application/json"
 	)
-	public ProductList process(@RequestBody RcmRequestWrapper request)
+	public ProductList process(@RequestBody RcmRequest request)
 	{
 		System.out.println("[ENNVAS-RCM] Received query process request.");
 
-		return RcmRestController.passRequest(request);
+		/*
+		 * Retrieve command line arguments (pre-validated).
+		 */
+
+		String[] args = applicationArguments.getSourceArgs();
+		int minimumUtilityArg = Integer.parseInt(args[0]);
+		int firstXElementsArg = Integer.parseInt(args[1]);
+
+		/*
+		 * Pass the request.
+		 */
+
+		return RcmRestController.passRequest(
+			request,
+			minimumUtilityArg,
+			firstXElementsArg
+		);
 	}
 
 	/**
@@ -65,26 +86,24 @@ public class RcmRestController
 	 * 
 	 * @return Response wrapper with the result values.
 	 */
-	public static ProductList passRequest(RcmRequestWrapper request)
+	public static ProductList passRequest(RcmRequest request, int minimumUtilityArg, int firstXElementsArg)
 	{
 		System.out.println("[ENNVAS-RCM] Received query:\n");
 		System.out.println(request.getQuery());
 		System.out.println("");
 
-		System.out.println("[ENNVAS-RCM] Received knowledgebase products:\n");
+		System.out.println("[ENNVAS-RCM] Received knowledge base products:\n");
 
 		for (int i = 0; i < request.getProducts().size(); i++) {
 			System.out.println(request.getProducts().get(i));
 			System.out.println("");
 		}
 
-		/**
-		 * Instantiate algorithm.
+		/*
+		 * Instantiate the algorithm.
 		 */
 
-		MainAlgorithm rec = new MainAlgorithm(request.getProducts());
-
-		
+		MainAlgorithm rec = new MainAlgorithm(request.getProducts(), minimumUtilityArg, firstXElementsArg);
 
 		List<Product> results =
 			(LinkedList<Product>) rec.processQuery(request.getQuery());

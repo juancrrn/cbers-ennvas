@@ -1,1 +1,0 @@
-curl -H "Content-type:application/json" --data @JsonRequestExample.json http://localhost:8080/ennvas/rcm/rest/process

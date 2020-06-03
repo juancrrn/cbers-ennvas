@@ -1,12 +1,16 @@
-package com.cbers.ennvas.recommender.domain.resource;
+package com.cbers.ennvas.recommender.rest.controller.data;
 
 import java.util.List;
 
+import com.cbers.ennvas.recommender.domain.resource.Query;
+import com.cbers.ennvas.recommender.domain.resource.Product;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * Wraps a response with a list of ResponseProducts.
+ * Wraps a request with a Query and a list of Product (knowledge base).
  * 
  * Uses Jackson annotations.
  * @see https://github.com/FasterXML/jackson-docs
@@ -21,8 +25,11 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ProductList
+@NoArgsConstructor
+public class RcmRequest
 {
+
+	private Query query;
 
 	private List<Product> products;
 }
