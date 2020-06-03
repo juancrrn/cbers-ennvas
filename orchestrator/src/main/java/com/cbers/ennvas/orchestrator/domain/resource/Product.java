@@ -1,6 +1,4 @@
-package com.cbers.ennvas.recommender.domain.resource;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.cbers.ennvas.orchestrator.domain.resource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +11,7 @@ import lombok.NoArgsConstructor;
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
  * 
  * @version 1.0.0
  */
@@ -78,33 +77,6 @@ public class Product
 	 */
 	private String providerUniqueUrl;
 	
-	/**
-	 * Utility. Calculated statically and on demand.
-	 */
-	@JsonIgnore
-	private double utility;
-
-	/**
-	 * Constructs a Product from another Product.
-	 * 
-	 * @param p Source Product.
-	 */
-	public Product(Product p)
-	{
-		this.name = p.name;
-		this.type = p.type;
-		this.brand = p.brand;
-		this.price = p.price;
-		this.stock = p.stock;
-		this.rating = p.rating;
-		this.shippingPrice = p.shippingPrice;
-		this.shippingTime = p.shippingTime;
-		this.description = p.description;
-		this.utility = p.utility;
-		this.providerName = p.providerName;
-		this.providerUniqueUrl = p.providerUniqueUrl;
-	}
-	
 	@Override
 	public String toString()
 	{
@@ -122,4 +94,4 @@ public class Product
 		"providerUniqueUrl: " + this.providerUniqueUrl +
 		" ]";
 	}
-} 
+}

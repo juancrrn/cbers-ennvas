@@ -6,6 +6,9 @@ import java.util.List;
 import com.cbers.ennvas.recommender.domain.resource.Product;
 import com.cbers.ennvas.recommender.domain.resource.Query;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +27,8 @@ import java.util.Comparator;
 
 public class MainAlgorithm
 {
+
+    private static final Logger log = LoggerFactory.getLogger(MainAlgorithm.class);
 
 	/**
 	 * Number of result elements to respond with.
@@ -68,7 +73,7 @@ public class MainAlgorithm
 	 */
 	public List<Product> processQuery(Query query)
 	{
-		System.out.println("[ENNVAS-RCM] Processing query with minimum utility " + this.minimumUtility + " and first x elements " + this.firstXElements + ".");
+		log.info("Processing query with minimum utility " + this.minimumUtility + " and first x elements " + this.firstXElements + ".");
 
 		/*
 		 * Pre-calculate all products' utility based on the query.

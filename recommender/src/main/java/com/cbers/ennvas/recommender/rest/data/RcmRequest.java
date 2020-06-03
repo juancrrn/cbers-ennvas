@@ -1,4 +1,4 @@
-package com.cbers.ennvas.recommender.rest.controller.data;
+package com.cbers.ennvas.recommender.rest.data;
 
 import java.util.List;
 

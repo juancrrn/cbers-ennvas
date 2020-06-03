@@ -20,6 +20,18 @@ public class AgmApp
 
 	public static void main(String[] args)
 	{
+        /*
+         * Validate command line arguments.
+         */
+    
+        if (args.length != 1) {
+            throw new IllegalArgumentException("One argument is required. First argument (demo data path) is expected to be a file path.");
+        }
+
+		/*
+		 * Run the Spring application.
+		 */
+
 		SpringApplication.run(AgmApp.class, args);
 	}
 }

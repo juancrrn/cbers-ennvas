@@ -24,7 +24,7 @@ public class RcmApp
 		 * Validate command line arguments.
 		 */
 
-		if (args.length < 2) {
+		if (args.length != 2) {
 			throw new IllegalArgumentException("Two arguments are required.");
 		}
 

@@ -8,11 +8,13 @@ import com.cbers.ennvas.agentmanager.persistence.repository.ProductRepository;
 import com.cbers.ennvas.agentmanager.rest.controller.AgmRestController;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * Tests AgentManager dependency injection.
+ * Tests agent manager dependency injection.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -22,9 +24,11 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @version 1.0.0
  */
 
-@SpringBootTest
+//@SpringBootTest
 public class AgmDependencyInjectionTest
 {
+
+    private static final Logger log = LoggerFactory.getLogger(AgmDependencyInjectionTest.class);
     
     @Autowired
     private AgmRestController agmRestController;
@@ -45,10 +49,10 @@ public class AgmDependencyInjectionTest
      * 
      * @throws Exception
      */
-    @Test
+    //@Test
     public void contextLoads() throws Exception
     {
-        System.out.println("[ENNVAS-AGM][AgmDependencyInjectionTest] Assertions.");
+        log.info("Running assertions.");
         
         assertThat(agmRestController).isNotNull();
         assertThat(productRepository).isNotNull();

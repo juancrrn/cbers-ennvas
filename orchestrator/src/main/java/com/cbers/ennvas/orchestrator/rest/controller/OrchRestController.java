@@ -2,12 +2,15 @@ package com.cbers.ennvas.orchestrator.rest.controller;
 
 import java.util.List;
 
-import com.cbers.ennvas.orchestrator.domain.resource.AgmProduct;
-import com.cbers.ennvas.orchestrator.domain.resource.AgmProductList;
-import com.cbers.ennvas.orchestrator.domain.resource.FrontQuery;
-import com.cbers.ennvas.orchestrator.rest.controller.data.RcmRequestWrapper;
+import com.cbers.ennvas.orchestrator.domain.resource.Product;
+import com.cbers.ennvas.orchestrator.domain.resource.ProductList;
+import com.cbers.ennvas.orchestrator.domain.resource.Query;
+import com.cbers.ennvas.orchestrator.rest.data.RcmRequest;
 
-import org.springframework.context.annotation.Bean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
  * @author Nicolás Pardina Popp
  * @author Melany Daniela Chicaiza Quezada
  * 
- * @version 0.0.2
+ * @version 1.0.0
  */
 
 @RestController
@@ -31,61 +34,73 @@ import org.springframework.web.client.RestTemplate;
 public class OrchRestController
 {
 
-    @Bean
-    public RestTemplate rest()//restTemplate(RestTemplateBuilder builder){
-    {
-        return new RestTemplate();//return builder.build();
-    }
-    
-    @PostMapping(value = "/search", consumes = "application/json", produces = "application/json")
-    public void /*SearchResponseWrapper*/ search(@RequestBody FrontQuery searchRequest)
-    {
+	@Autowired
+	private ApplicationArguments applicationArguments;
 
+    private static final String AGENT_MANAGER_PATH = "/ennvas/agm/rest/retrieve";
+    private static final String RECOMMENDER_PATH = "/ennvas/rcm/rest/process";
+
+    private static final Logger log = LoggerFactory.getLogger(OrchRestController.class);
+    
+    /**
+     * TODO Document method
+     */
+    @PostMapping(value = "/search", consumes = "application/json", produces = "application/json")
+    public ProductList search(@RequestBody Query searchRequest)
+    {
         RestTemplate restTemplate = new RestTemplate();
+
+		/*
+		 * Retrieve command line arguments (pre-validated).
+		 */
+
+		String[] args = applicationArguments.getSourceArgs();
+		String agentManagerUrl = args[0];
+        String recommenderUrl = args[1];
 
         /**
          * Retrieve information from the AgentManager.
          */
 
-        System.out.println("[ENNVAS-ORCH] Submitting request to AgentManager.");
+        log.info("Submitting request to agent manager.");
 
-        AgmProductList agmResponse = restTemplate.getForObject(
-            "http://localhost:60002/ennvas/agm/rest/retrieve",
-            AgmProductList.class
+        ProductList agmResponse = restTemplate.getForObject(
+            agentManagerUrl + AGENT_MANAGER_PATH,
+            ProductList.class
         );
 
-        System.out.println("[ENNVAS-ORCH] Got response from AgentManager.");
+        log.info("Received response from agent manager.");
 
-        List<AgmProduct> agmProducts = agmResponse.getProducts();
+        List<Product> agmProducts = agmResponse.getProducts();
 
-        for (AgmProduct product : agmProducts) {
-            System.out.println(product.getName());
+        for (Product product : agmProducts) {
+            log.info(product.toString());
         }
 
         /**
          * Generate Recommender request and retrieve information from it.
          */
 
-        System.out.println("[ENNVAS-ORCH] Creating request for Recommender.");
+        log.info("Creating request for recommender.");
 
-        RcmRequestWrapper rcmRequest = new RcmRequestWrapper(searchRequest, agmResponse.getProducts());
+        RcmRequest rcmRequest = new RcmRequest(searchRequest, agmResponse.getProducts());
 
-        System.out.println("[ENNVAS-ORCH] Submitting request to Recommender.");
+        log.info("Submitting request to recommender.");
 
-        AgmProductList rcmResponse = restTemplate.postForObject(
-            "http://localhost:60000/ennvas/rcm/rest/process",
+        ProductList rcmResponse = restTemplate.postForObject(
+            recommenderUrl + RECOMMENDER_PATH,
             rcmRequest,
-            AgmProductList.class
+            ProductList.class
         );
 
-        System.out.println("[ENNVAS-ORCH] Got response from Recommender.");
+        log.info("Received response from recommender.");
 
-        List<AgmProduct> rcmProducts = rcmResponse.getProducts();
+        List<Product> rcmProducts = rcmResponse.getProducts();
 
-        for (AgmProduct product : rcmProducts) {
-            System.out.println(product.getName());
+        for (Product product : rcmProducts) {
+            log.info(product.toString());
         }
 
-        //return new SearchResponseWrapper();
+        return new ProductList(rcmProducts);
     }
 }

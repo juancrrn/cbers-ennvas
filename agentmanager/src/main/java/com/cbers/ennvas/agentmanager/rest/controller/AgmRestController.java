@@ -5,6 +5,8 @@ import com.cbers.ennvas.agentmanager.rest.controller.data.ProductResponse;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AgmRestController
 {
 
+    private static final Logger log = LoggerFactory.getLogger(AgmRestController.class);
+
 	@Autowired
 	private ProductServiceImpl productServiceImpl;
 
@@ -36,9 +40,9 @@ public class AgmRestController
 	@GetMapping(value="/retrieve", produces = "application/json")
 	public ResponseEntity<ProductResponse> retrieve()
 	{
-		System.out.println("[ENNVAS-AGM] Received product data request.");
+		log.info("Received product data request.");
 
-		System.out.println("[ENNVAS-AGM] Sengind product data.");
+		log.info("Sengind product data.");
 
 		return ResponseEntity.ok(productServiceImpl.getAllProducts());
 	}

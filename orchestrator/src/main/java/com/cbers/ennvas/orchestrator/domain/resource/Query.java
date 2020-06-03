@@ -1,4 +1,4 @@
-package com.cbers.ennvas.recommender.domain.resource;
+package com.cbers.ennvas.orchestrator.domain.resource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,14 +7,11 @@ import lombok.NoArgsConstructor;
 /**
  * Represents a query to the recommender.
  * 
- * Default values are used to decide if data is relevant in the utility 
- * function. If value is default, data is ignored. See
- * UtilityFunction#calculate.
- * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
  * @author Olga Posada Iglesias
  * @author Nicolás Pardina Popp
+ * @author Melany Daniela Chicaiza Quezada
  * 
  * @version 1.0.0
  */
