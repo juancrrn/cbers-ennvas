@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ennvas</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/5.13.0/css/fontawesome.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/5.13.0/css/solid.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="/images/ennvas-icono-titulo.svg" alt="Ennvas" height="64">
+        </a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form id="queryForm">
+        <div class="mt-4 container">
+            <div class="row">
+                <div class="col"></div>
+
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body" id="queryFilters">
+
+                            <div class="form-group">
+                                <label for="queryPriceMin"><i class="fas fa-euro-sign"></i> Precio mínimo</label>
+                                <input type="number" name="price_min" class="form-control" id="queryPriceMin" placeholder="Precio mínimo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="queryPriceMax"><i class="fas fa-euro-sign"></i> Precio máximo</label>
+                                <input type="number" name="price_max" class="form-control" id="queryPriceMax" placeholder="Precio máximo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="queryAvailable"><i class="fas fa-check"></i> Disponible</label>
+                                <select name="available" class="form-control" id="queryAvailable">
+                                  <option value="false">Me da igual</option>
+                                  <option value="true">Disponible</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="queryFreeShipping"><i class="fas fa-dolly"></i> Coste del envío</label>
+                                <select name="free_shipping" class="form-control" id="queryFreeShipping">
+                                  <option value="false">Me da igual</option>
+                                  <option value="true">Gratuito</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="queryMaxShippingTime"><i class="fas fa-shipping-fast"></i> Tiempo de envío máximo</label>
+                                <input type="number" name="max_shipping_time" class="form-control" id="queryMaxShippingTime" placeholder="Tiempo de envío máximo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="queryMinRating"><i class="fas fa-star"></i> Valoración mínima</label>
+                                <input type="number" name="min_rating" class="form-control" id="queryMinRating" placeholder="Valoración mínima">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" name="phrase" class="form-control" id="queryPhrase" placeholder="Buscar...">
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-primary btn-block mb-2">Buscar</button>
+                        </div>
+                    </div>
+
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="product-pre-header mb-2">
+                                <span class="badge badge-secondary">$brand</span>
+                                <span class="badge badge-secondary">$type</span>
+                            </div>
+                            <h5 class="card-title mb-3">$name</h5>
+                            <div class="product-attributes mb-4">
+                                <span><i class="fas fa-cubes"></i> $stock</span>
+                                <span><i class="fas fa-star"></i> $rating</span>
+                                <span><i class="fas fa-dolly"></i> $shippingCost</span>
+                                <span><i class="fas fa-shipping-fast"></i> $shippingTime</span>
+                            </div>
+                            <p class="card-text">Descripción del producto.</p>
+                            <a href="#" class="card-link">$precio en $proveedor</a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col"></div>
+            </div>
+        </div>
+    </form>
+
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
