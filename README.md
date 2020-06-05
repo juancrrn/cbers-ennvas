@@ -10,8 +10,8 @@ The first thing to do is to initialize the MySQL database in the machine where t
 
 Then, compile the sources of the four components. Run this command in every component's root directory:
 
-```powershell
->mvn clean package
+```console
+$ mvn clean package
 ```
 
 ## Simple running
@@ -20,26 +20,26 @@ Then, compile the sources of the four components. Run this command in every comp
 
 2. Start the agent manager component. It receives one argument, which is the path to the demo data JSON file.
 
-```powershell
->java -jar .\agentmanager\target\agentmanager-1.0.0.jar ".\agentmanager\src\main\resources\demo\demo-products.json"
+```console
+$ java -jar .\agentmanager\target\agentmanager-1.0.0.jar ".\agentmanager\src\main\resources\demo\demo-products.json"
 ```
 
 3. Start the recommender component. It receives two arguments, which are a minimum utility function for a product to be shown in the result, and the quantity of products to be shown in total.
 
-```powershell
->java -jar .\recommender\target\recommender-1.0.0.jar 1 6
+```console
+$ java -jar .\recommender\target\recommender-1.0.0.jar 1 6
 ```
 
 4. Start the orchestrator component. It receives two arguments, which are the URLs of the agent manager and recommender components.
 
-```powershell
->java -jar .\target\orchestrator-1.0.0.jar http://localhost:60002 http://localhost:60004
+```console
+$ java -jar .\target\orchestrator-1.0.0.jar http://localhost:60002 http://localhost:60004
 ```
 
 5. Start the front end component. It receives one argument, which is the URL of the orchestrator component.
 
-```powershell
->java -jar .\target\frontend-1.0.0.jar http://localhost:60003
+```console
+$ java -jar .\target\frontend-1.0.0.jar http://localhost:60003
 ```
 
 6. Visit the front end web UI
