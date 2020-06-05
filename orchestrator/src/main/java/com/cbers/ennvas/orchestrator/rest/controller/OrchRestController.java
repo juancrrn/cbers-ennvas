@@ -45,7 +45,11 @@ public class OrchRestController
     /**
      * TODO Document method
      */
-    @PostMapping(value = "/search", consumes = "application/json", produces = "application/json")
+    @PostMapping(
+        value = "/search",
+        consumes = "application/json",
+        produces = "application/json"
+    )
     public ProductList search(@RequestBody Query searchRequest)
     {
         RestTemplate restTemplate = new RestTemplate();
