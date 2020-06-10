@@ -80,32 +80,32 @@ public class UtilityFunction
 		
 		/* Query minimum price. */
 		if (query.getPriceMin() > 0.0 && query.getPriceMin() > product.getPrice()) {
-			utility--;
+			utility = -100;
 		}
 
 		/* Query maximum price. */
 		if (query.getPriceMax() > 0.0 && query.getPriceMax() < product.getPrice()) {
-			utility--;
+			utility = -100;
 		}
 
 		/* Query free shipping. */
 		if (query.isFreeShipping() && product.getShippingPrice() != 0) {
-			utility--;
+			utility = -100;
 		}
 
 		/* Query maximum shipping time. */
 		if (query.getMaxShippingTime() > 0 && query.getMaxShippingTime() < product.getShippingTime()) {
-			utility--;
+			utility = -100;
 		}
 
 		/* Query available. */
 		if (query.isAvailable() && product.getStock() == 0) {
-			utility--;
+			utility = -100;
 		}
 
 		/* Query minimum rating. */
 		if (query.getMinRating() > 0 && query.getMinRating() > product.getRating()) {
-			utility--;
+			utility = -100;
 		}
 		
 		/*

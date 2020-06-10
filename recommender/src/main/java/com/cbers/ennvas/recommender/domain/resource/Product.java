@@ -120,6 +120,7 @@ public class Product
 		"description: " + this.description + ", " +
 		"providerName: " + this.providerName + ", " +
 		"providerUniqueUrl: " + this.providerUniqueUrl +
+		"UTILITY: " + this.utility +
 		" ]";
 	}
 } 
