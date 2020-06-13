@@ -29,6 +29,11 @@ public class FrontRestController
 
     private static final String ORCHESTRATOR_PATH = "/ennvas/orch/rest/search";
 
+
+    /*
+    * Receives a query that contains the user's search.
+    * Return a response from the orchestrator, that contains the products that meet the user requirements.
+    */
     @PostMapping(
         value = "/search",
         consumes = "application/json",
