@@ -32,4 +32,9 @@ public class RcmRequest
 	private Query query;
 
 	private List<Product> products;
+	
+	public String toString()
+	{
+		return "[query: " + query.toString() + ", " + "products: ...]";
+	}
 }

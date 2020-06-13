@@ -23,7 +23,24 @@ namespace.jsonToProduct = function(json)
                 <span><i class="fas fa-shipping-fast"></i> ' + json.shippingTime + '</span>\
             </div>\
             <p class="card-text">' + json.description + '</p>\
-            <a target="_blank" href="' + json.providerUniqueUrl + '" class="card-link">' + json.price + ' en ' + json.providerName + '</a>\
+            <a target="_blank" href="' + json.providerUniqueUrl + '" class="card-link">' + json.price + ' € en ' + json.providerName + '</a>\
+        </div>\
+    </div>\
+    ';
+
+    return html;
+}
+
+/**
+ * @return {string}
+ */
+namespace.emptyCard = function()
+{
+    const html = '\
+    <div class="card mb-2">\
+        <div class="card-body">\
+            <h5 class="card-title mb-3">No hay resultados</h5>\
+            <p class="card-text">No se han encontrado resultados. Por favor, prueba con una consulta menos restrictiva.</p>\
         </div>\
     </div>\
     ';
@@ -62,9 +79,14 @@ $('#queryForm').on('submit', function (event) {
             $('#product-container').empty();
 
             if (result.products) {
-                for (i = 0; i < result.products.length; i++) {
-                    const productHtml = namespace.jsonToProduct(result.products[i]);
-                    $('#product-container').append(productHtml);
+                if (result.products.length > 0) {
+                    for (i = 0; i < result.products.length; i++) {
+                        const productHtml = namespace.jsonToProduct(result.products[i]);
+                        $('#product-container').append(productHtml);
+                    }
+                } else {
+                    const emptyCard = namespace.emptyCard();
+                    $('#product-container').append(emptyCard);
                 }
             }
         },
