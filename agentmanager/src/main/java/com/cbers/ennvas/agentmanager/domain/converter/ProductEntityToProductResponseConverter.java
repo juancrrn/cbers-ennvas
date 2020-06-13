@@ -39,6 +39,8 @@ public class ProductEntityToProductResponseConverter
 		response.setShippingTime(source.getShippingTime());
 		response.setStock(source.getStock());
 		response.setType(source.getType());
+		response.setProviderName(source.getProviderName());
+		response.setProviderUniqueUrl(source.getProviderUniqueUrl());
 		
 		return response;
 	}
