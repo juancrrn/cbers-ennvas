@@ -86,12 +86,12 @@ In the next titles, we show how to send demo requests to the components via a RE
 {
 	"query":{
 		"phrase":"Apple iPhone 11 (64 GB) hey - - en Negro",
-		"available":false,
-		"freeShipping":true,
-		"priceMin":300,
-		"priceMax":800,
-		"maxShippingTime":21,
-		"minRating":3
+		"available":true,
+		"free_shipping":true,
+		"price_min":300,
+		"price_max":400,
+		"max_shipping_time":7,
+		"min_rating":3
 	},
 	"products":[
 		{
@@ -100,12 +100,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Apple",
 			"price":793.99,
 			"stock":568,
+			"description":"Pantalla LCD Liquid Retina HD de 6,1 pulgadas, Resistencia al agua y al polvo (2 metros hasta 30 minutos, IP68), Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular; modo Noche, modo Retrato y vídeo 4K hasta 60 f/s, Cámara frontal TrueDepth de 12 Mpx con modo Retrato, vídeo 4K y ,grabación a cámara lenta, Face ID para autenticarse deforma segura yusar ApplePay, Chip A13 Bionic con Neural Engine de 3.ª generación, Admite la carga rápida Carga inalámbrica",
 			"rating":4.7,
-			"shippingPrice":0,
-			"shippingTime":20,
-			"description":"Pantalla LCD Liquid Retina HD de 6,1 pulgadas, Resistencia al agua y al polvo (2 metros hasta 30 minutos, IP68), Sistema de cámara dual de 12 Mpx con gran angular y ultra gran angular; modo Noche, modo Retrato y vídeo 4K hasta 60 f/s, Cámara frontal TrueDepth de 12 Mpx con modo Retrato, vídeo 4K y ,grabación a cámara lenta, Face ID para autenticarse de forma segura y usar ApplePay, Chip A13 Bionic con Neural Engine de 3.ª generación, Admite la carga rápida Carga inalámbrica",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Apple-iPhone-11-64-GB-Negro/dp/B07XS2ZR1K"
+			"shipping_price":0,
+			"shipping_time":20
 		},
 		{
 			"name":"Samsung Galaxy 10+",
@@ -113,12 +111,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Samsung",
 			"price":1009,
 			"stock":678,
-			"rating":4.6,
-			"shippingPrice":0,
-			"shippingTime":15,
 			"description":"Smartphone de 6.4 QHD+ Curved Dynamic AMOLED, 16 MP, Exynos 9820, Wireless & Fast & Reverse Charging, 128 GB, Prisma Negro (Prism Black) [Clase de eficiencia energética A]",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Samsung-Galaxy-S10-Smartphone-Wireless/dp/B07NDD7W23/ref=sr_1_3?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=samsung+galaxy+10%2B&qid=1591004563&s=electronics&sr=1-3"
+			"rating":4.6,
+			"shipping_price":0,
+			"shipping_time":15
 		},
 		{
 			"name":"Frozen 2",
@@ -126,12 +122,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Disney",
 			"price":18.9,
 			"stock":67,
-			"rating":0,
-			"shippingPrice":0,
-			"shippingTime":1,
 			"description":"Formato: Edición estandar, Audio: Inglés, Español, Subtítulos: Español, Región: Región 2, Calificación española (ICAA): Apta para todos los públicos",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Frozen-2-DVD-No-aplica/dp/B081FRR2R7/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=frozen+2+dvd&qid=1591004673&sr=8-1"
+			"rating":0,
+			"shipping_price":0,
+			"shipping_time":1
 		},
 		{
 			"name":"Animal Crossing: New Horizons",
@@ -139,12 +133,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Nintendo",
 			"price":59.9,
 			"stock":1000,
-			"rating":5,
-			"shippingPrice":3.99,
-			"shippingTime":3,
 			"description":"Personaliza tu casa y a tu personaje, decora el paisaje (¡hasta con muebles, si quieres!) y ve creando poco a poco tu propia isla paradisíaca. ",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Nintendo-Animal-crossing-Switch/dp/B07HCVN3D1/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Animal+Crossing%3A+New+Horizons&qid=1591004736&sr=8-1"
+			"rating":5,
+			"shipping_price":3.99,
+			"shipping_time":3
 		},
 		{
 			"name":"Toshiba Canvio Basics",
@@ -152,12 +144,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Toshiba",
 			"price":60.99,
 			"stock":200,
+			"description":"2TB Disco duro externo de 2.5 Acabado mate Puerto superspeed usb 3.0 Alimentado usb Toshiba Canvio Basics - Disco duro externo portátil USB 3.0 de 2.5 pulgadas (2 TB) color negro ",
 			"rating":4.6,
-			"shippingPrice":0,
-			"shippingTime":1,
-			"description":"2TB Disco duro externo de 2.5 Acabado mate Puerto superspeed usb 3.0 Alimentado usb Toshiba Canvio Basics - Disco duro externo portátil USB 3.0 de 2.5 pulgadas (2 TB) color negro",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Toshiba-Canvio-Basics-Port%C3%A1til-Pulgadas/dp/B07994QL95/ref=sr_1_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Toshiba%2BCanvio%2BBasics&qid=1591004759&sr=8-2&th=1"
+			"shipping_price":0,
+			"shipping_time":1
 		},
 		{
 			"name":"Virus!",
@@ -165,12 +155,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Tranjis Games",
 			"price":16,
 			"stock":43,
-			"rating":4.8,
-			"shippingPrice":5.99,
-			"shippingTime":7,
 			"description":"Enfrentar la pandemia y competir para ser el primero en erradicar el virus mediante el aislamiento de un cuerpo sano. tico o no, todos los medios a su alcance son validos para lograr la victoria. Utiliza tu ingenio para boicotear los esfuerzos de sus rivales y ganar. Cada turno de Virus! ya sea que juegues una carta o descartar cualquier número de cartas, luego reponer la mano de tres cartas. Las tarjetas pueden ser: Uno de los cuatro granos (o el grano comodín) Uno de los cuatro virus (específico para cada grano o el virus comodín) Uno de los cuatro pastillas (específico para cada grano o la píldora comodín) Una carta de acción especial Se puede jugar solo una de cada granos en el rea del reproductor. Las píldoras y los virus se pueden reproducir en cualquier reproductor de granos, pero solo en el mismo grano de color. Una segunda píldora en cualquier grano que inmuniza contra la infección. Su objetivo es ser el primero en tener cuatro granos sanos en frente de usted.",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Tranjis-games-Virus-Cartas-1138753-62/dp/8460659666/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Virus%21&qid=1591004845&sr=8-1"
+			"rating":4.8,
+			"shipping_price":5.99,
+			"shipping_time":7
 		},
 		{
 			"name":"El Principito",
@@ -178,25 +166,10 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Salamandra",
 			"price":5.65,
 			"stock":113,
-			"rating":4.7,
-			"shippingPrice":2.99,
-			"shippingTime":1,
 			"description":"Antoine De Saint Exupery 96 páginas ISBN-10: 8498381495 El valor de la amistad, el heroísmo como meta y la responsabilidad como motor de la conducta moral encuentran su plasmación definitiva en el mundo que descubre El principito. ",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/El-principito-Antoine-Saint-Exup%C3%A9ry-ebook/dp/B081PDBZWF/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=El+Principito&qid=1591004909&sr=8-1"
-		},
-		{
-			"name":"Entrada 18 JSY",
-			"type":"football tshirt sports clothes",
-			"brand":"Adidas",
-			"price":10.99,
-			"stock":80,
-			"rating":4.5,
-			"shippingPrice":2.99,
-			"shippingTime":1,
-			"description":"Jersey de Fútbol de Manga Corta, Hombre XS/S/M/L/XL Regular fit Climalite anti-humidity fabric 50% Poliéster, 50% Poliéster Reciclado Adidas logo on the front Tecnologías innovadoras y el mayor confort. Esta camiseta está confeccionada con el material funcional climalite que garantiza una gestión óptima de la humedad. La tela ligera y el accesorio deportivo son agradables suaves en la piel, un ajuste perfecto y la máxima libertad de movimiento. El logo de rendimiento en el cofre y el clásico 3-Stripes en las mangas representan la marca de calidad adidas. ",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/adidas-Entrada-Camiseta-Equipaci%C3%B3n-Collegiate/dp/B0779C6P9T/ref=sr_1_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Entrada+18+JSY&qid=1591004946&sr=8-2"
+			"rating":4.7,
+			"shipping_price":2.99,
+			"shipping_time":1
 		},
 		{
 			"name":"Casio Reloj Vintage",
@@ -204,52 +177,22 @@ In the next titles, we show how to send demo requests to the components via a RE
 			"brand":"Casio",
 			"price":10.43,
 			"stock":34,
+			"description":"Color: Negro Incluye cronómetro, alarma, indicador de hora de 12/24 horas y calendario automático Caja y correa de resina sintética, un material resistente y flexible La duración de la batería es de 7 años Resistente al agua y soporta pequeñas salpicaduras de agua ",
 			"rating":4.6,
-			"shippingPrice":0,
-			"shippingTime":2,
-			"description":"Color: Negro Incluye cronómetro, alarma, indicador de hora de 12/24 horas y calendario automático Caja y correa de resina sintética, un material resistente y flexible La duración de la batería es de 7 años Resistente al agua y soporta pequeñas salpicaduras de agua",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Reloj-Casio-para-Hombre-F-91W-1XY/dp/B000J34HN4/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Casio+Reloj+Vintage&qid=1591004990&sr=8-1"
+			"shipping_price":0,
+			"shipping_time":2
 		},
 		{
-			"name":"Resident Evil 2 - Edición Estándar",
-			"type":"videogames",
-			"brand":"Capcom",
-			"price":59.99,
-			"stock":1000,
-			"rating":4.8,
-			"shippingPrice":0,
-			"shippingTime":9,
-			"description":"Una escalofriante reinvención de un clásico del horror Apartado visual terroríficamente realista Enfréntate a hordas grotescas Contempla a tus personajes favoritos bajo una perspectiva nueva Ponte en la piel de ambos héroes",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Resident-Evil-2-Edici%C3%B3n-Est%C3%A1ndar/dp/B07DM6YN7G/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Resident+Evil+2+-+Edici%C3%B3n+Est%C3%A1ndar&qid=1591005038&sr=8-1"
-		},
-		{
-			"name":"Cubierta para boca desechable, 100 unidades",
-			"type":"hygiene",
-			"brand":"ISAMANNER",
-			"price":37,
-			"stock":112,
-			"rating":2,
-			"shippingPrice":0,
-			"shippingTime":49,
-			"description":"Máscara facial desechable: esta máscara es ideal para proteger a las personas del polvo, Talla única: esta máscara facial desechable es súper cómoda y fácil de llevar. Cómodo de llevar: esta máscara cuenta con un alambre de nariz ajustable para garantizar un ajuste perfecto. Ocasión adecuada: esta máscara facial es buena para que la gente se mantenga alejada del polvo.",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/50-fundas-desechables-para-boca/dp/B0865WX5XT/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=Cubierta+para+boca+desechable+ISAMANNER&qid=1591005249&sr=8-1"
-		},
-		{
-			"name":"Energizer E92 - Pack de 24 pilas alcalinas AAA",
-			"type":"electronics",
-			"brand":"Energizer",
-			"price":9.95,
-			"stock":238,
-			"rating":4.7,
-			"shippingPrice":0,
-			"shippingTime":9,
-			"description":"Energía duradera para los dispositivos que utiliza a diario Larga duración de la carga cuando la necesitas Mantiene la carga hasta 10 años Aparatos de uso cotidiano, despertadores, mandos a distancia, etc Contiene 24 pilas aaa",
-			"providerName":"Amazon",
-			"providerUniqueUrl":"https://www.amazon.es/Energizer-E300456500-Bater%C3%ADa-Alcalina-Color/dp/B0132XX152/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=%27Energizer+E92+-+Pack+de+24+pilas+alcalinas+AAA&qid=1591005278&sr=8-1"
-		}
+			"name":"Entrada 18 JSY",
+			"type":"football tshirt sports clothes",
+			"brand":"Adidas",
+			"price":10.99,
+			"stock":80,
+			"description":"Jersey de Fútbol de Manga Corta, Hombre XS/S/M/L/XL Regular fit Climalite anti-humidity fabric 50% Poliéster, 50% Poliéster Reciclado Adidas logo on the front Tecnologías innovadoras y el mayor confort. Esta camiseta está confeccionada con el material funcional climalite que garantiza una gestión óptima de la humedad. La tela ligera y el accesorio deportivo son agradables suaves en la piel, un ajuste perfecto y la máxima libertad de movimiento. El logo de rendimiento en el cofre y el clásico 3-Stripes en las mangas representan la marca de calidad adidas. ",
+			"rating":4.5,
+			"shipping_price":2.99,
+			"shipping_time":1
+		}	
 	]
 }
 ```
@@ -267,11 +210,11 @@ Agent manager and recommender components are required to be running in order for
 {
 	"phrase":"Apple iPhone 11 (64 GB) hey - - en Negro",
 	"available":true,
-	"freeShipping":true,
-	"priceMin":300,
-	"priceMax":400,
-	"maxShippingTime":7,
-	"minRating":3
+	"free_shipping":true,
+	"price_min":300,
+	"price_max":400,
+	"max_shipping_time":7,
+	"min_rating":3
 }
 ```
 
@@ -290,10 +233,10 @@ This demo's prodedure and result is very similar, if not equal, to submitting th
 {
 	"phrase":"Apple iPhone 11 (64 GB) hey - - en Negro",
 	"available":true,
-	"freeShipping":true,
-	"priceMin":300,
-	"priceMax":400,
-	"maxShippingTime":7,
-	"minRating":3
+	"free_shipping":true,
+	"price_min":300,
+	"price_max":400,
+	"max_shipping_time":7,
+	"min_rating":3
 }
 ```
