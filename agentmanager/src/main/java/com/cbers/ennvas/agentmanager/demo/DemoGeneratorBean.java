@@ -1,6 +1,7 @@
 package com.cbers.ennvas.agentmanager.demo;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -71,7 +72,7 @@ public class DemoGeneratorBean
 		
 		try {
             jsonData =
-                new String(Files.readAllBytes(Paths.get(demoDataJsonPath)));
+                new String(Files.readAllBytes(Paths.get(demoDataJsonPath)), StandardCharsets.UTF_8);
 		} catch (IOException e) {
             e.printStackTrace();
         }
