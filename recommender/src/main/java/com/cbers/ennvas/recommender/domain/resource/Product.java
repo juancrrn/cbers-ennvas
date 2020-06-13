@@ -1,6 +1,7 @@
 package com.cbers.ennvas.recommender.domain.resource;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(Include.NON_NULL)
 public class Product
 {
 
@@ -81,7 +83,6 @@ public class Product
 	/**
 	 * Utility. Calculated statically and on demand.
 	 */
-	@JsonIgnore
 	private double utility;
 
 	/**
