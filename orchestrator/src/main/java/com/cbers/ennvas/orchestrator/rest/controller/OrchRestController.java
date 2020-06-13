@@ -43,7 +43,8 @@ public class OrchRestController
     private static final Logger log = LoggerFactory.getLogger(OrchRestController.class);
     
     /**
-     * TODO Document method
+     * Receives a query with the desired user's search.
+     * Returns a list of products that meets the requirements.
      */
     @PostMapping(
         value = "/search",
