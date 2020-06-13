@@ -3,7 +3,7 @@ package com.cbers.ennvas.agentmanager.application.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.cbers.ennvas.agentmanager.domain.converter.ProductEntityToProductResponseConverter;
+import com.cbers.ennvas.agentmanager.domain.converter.ProductEntityToUniqueProductResponseConverter;
 import com.cbers.ennvas.agentmanager.persistence.entity.ProductEntity;
 import com.cbers.ennvas.agentmanager.persistence.repository.ProductRepository;
 import com.cbers.ennvas.agentmanager.rest.controller.data.ProductResponse;
@@ -31,10 +31,12 @@ public class ProductServiceImpl implements ProductService
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductEntityToProductResponseConverter productEntityToProductResponseConverter;
+	private ProductEntityToUniqueProductResponseConverter productEntityToUniqueProductResponseConverter;
 
 	/**
-	 * TODO Describe this method
+	 * Returns all the products.
+	 * 
+	 * @return All the products.
 	 */
 	@Override
 	public ProductResponse getAllProducts() {
@@ -43,7 +45,7 @@ public class ProductServiceImpl implements ProductService
 		List<ProductEntity> allProducts = productRepository.findAll();
 		List<UniqueProductResponse> uniqueProductsList = allProducts
 			.stream()
-			.map(e -> productEntityToProductResponseConverter.convert(e))
+			.map(e -> productEntityToUniqueProductResponseConverter.convert(e))
 			.collect(Collectors.toList());
 
 		response.setProducts(uniqueProductsList);

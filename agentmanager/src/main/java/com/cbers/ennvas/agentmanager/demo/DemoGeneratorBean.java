@@ -17,6 +17,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Component;
 
+/**
+ * Bean for demo data generation.
+ * 
+ * @author Juan Francisco Carrión Molina
+ * @author Raquel Pérez González de Ossuna
+ * @author Olga Posada Iglesias
+ * @author Nicolás Pardina Popp
+ * 
+ * @version 1.0.0
+ */
+
 @Component
 public class DemoGeneratorBean
 {
@@ -30,7 +41,8 @@ public class DemoGeneratorBean
     private ProductRepository productRepository;
 
     /**
-     * TODO Document method
+     * Initializes the demo data: retrieves it from the JSON file and saves it
+     * to the repository.
      */
     @PostConstruct
     public void init()
@@ -62,9 +74,11 @@ public class DemoGeneratorBean
     }
 
     /**
-     * TODO Document method
-     * @param demoDataJsonPath
-     * @return
+     * Retrieves the demo data from the JSON file.
+     * 
+     * @param demoDataJsonPath Path to the JSON file.
+     * 
+     * @return Demo data.
      */
     public static ProductEntity[] generate(String demoDataJsonPath)
     {

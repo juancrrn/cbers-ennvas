@@ -3,7 +3,7 @@ package com.cbers.ennvas.agentmanager.rest.controller.data;
 import lombok.Data;
 
 /**
- * TODO Describe this class
+ * Response for a single product.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna

@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * TODO Describe this class
+ * Product response.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -20,7 +20,7 @@ public class ProductResponse
 {
 	
 	/**
-	 * TODO Describe this property
+	 * A list with the products of the response.
 	 */
 	private List<UniqueProductResponse> products;
 }

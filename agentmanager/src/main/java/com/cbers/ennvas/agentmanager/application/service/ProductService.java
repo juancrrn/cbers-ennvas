@@ -16,5 +16,10 @@ import com.cbers.ennvas.agentmanager.rest.controller.data.ProductResponse;
 public interface ProductService
 {
 	
+	/**
+	 * Returns all the products.
+	 * 
+	 * @return All the products.
+	 */
 	ProductResponse getAllProducts();
 }

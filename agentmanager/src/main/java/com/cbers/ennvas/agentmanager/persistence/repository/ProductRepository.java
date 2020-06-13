@@ -8,7 +8,7 @@ import java.util.List;
 import com.cbers.ennvas.agentmanager.persistence.entity.ProductEntity;
 
 /**
- * TODO Describe this class
+ * Product repository.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -24,7 +24,7 @@ public interface ProductRepository
 {
 
 	/**
-	 * TODO Describe this method
+	 * Returns a list with all the stored products.
 	 */
 	List<ProductEntity> findAll();
 }

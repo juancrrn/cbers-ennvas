@@ -7,7 +7,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO Describe this class
+ * ProductEntity to UniqueProductResponse converter class.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -18,12 +18,16 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class ProductEntityToProductResponseConverter
+public class ProductEntityToUniqueProductResponseConverter
 	implements Converter<ProductEntity, UniqueProductResponse>
 {
 
 	/**
-	 * TODO Describe this method
+	 * Converts a ProductEntity object to a UniqueProductResponse object.
+	 * 
+	 * @param source ProductEntity object.
+	 * 
+	 * @return UniqueProductResponse object.
 	 */
 	@Override
 	public UniqueProductResponse convert(ProductEntity source)

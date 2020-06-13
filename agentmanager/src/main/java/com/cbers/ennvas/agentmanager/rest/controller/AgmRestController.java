@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * TODO Describe this class
+ * Agent manager REST controller.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
@@ -33,9 +33,9 @@ public class AgmRestController
 	private ProductServiceImpl productServiceImpl;
 
 	/**
-	 * TODO Describe this method
+	 * Returns all the available products.
 	 * 
-	 * @return
+	 * @return All the available products.
 	 */
 	@GetMapping(value="/retrieve", produces = "application/json")
 	public ResponseEntity<ProductResponse> retrieve()
