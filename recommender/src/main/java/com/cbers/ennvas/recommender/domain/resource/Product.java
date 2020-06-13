@@ -91,35 +91,36 @@ public class Product
 	 */
 	public Product(Product p)
 	{
-		this.name = p.name;
-		this.type = p.type;
-		this.brand = p.brand;
-		this.price = p.price;
-		this.stock = p.stock;
-		this.rating = p.rating;
-		this.shippingPrice = p.shippingPrice;
-		this.shippingTime = p.shippingTime;
-		this.description = p.description;
-		this.utility = p.utility;
-		this.providerName = p.providerName;
-		this.providerUniqueUrl = p.providerUniqueUrl;
+		this.name = p.getName();
+		this.type = p.getType();
+		this.brand = p.getBrand();
+		this.price = p.getPrice();
+		this.stock = p.getStock();
+		this.rating = p.getRating();
+		this.shippingPrice = p.getShippingPrice();
+		this.shippingTime = p.getShippingTime();
+		this.description = p.getDescription();
+		this.providerName = p.getProviderName();
+		this.providerUniqueUrl = p.getProviderUniqueUrl();
+		this.utility = p.getUtility();
 	}
 	
 	@Override
 	public String toString()
 	{
 		return "Product: [ " +
-		"name: " + this.name + ", " +
-		"type: " + this.type + ", " +
-		"brand: " + this.brand + ", " +
-		"price: " + this.price + ", " +
-		"stock: " + this.stock + ", " +
-		"rating: " + this.rating + ", " +
-		"shippingPrice: " + this.shippingPrice + ", " +
-		"shippingTime: " + this.shippingTime + ", " +
-		"description: " + this.description + ", " +
-		"providerName: " + this.providerName + ", " +
-		"providerUniqueUrl: " + this.providerUniqueUrl +
+		"name: " + this.getName() + ", " +
+		"type: " + this.getType() + ", " +
+		"brand: " + this.getBrand() + ", " +
+		"price: " + this.getPrice() + ", " +
+		"stock: " + this.getStock() + ", " +
+		"rating: " + this.getRating() + ", " +
+		"shippingPrice: " + this.getShippingPrice() + ", " +
+		"shippingTime: " + this.getShippingTime() + ", " +
+		"description: " + this.getDescription() + ", " +
+		"providerName: " + this.getProviderName() + ", " +
+		"providerUniqueUrl: " + this.getProviderUniqueUrl() + ", " +
+		"utility: " + this.getUtility() +
 		" ]";
 	}
 } 
