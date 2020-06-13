@@ -77,7 +77,7 @@ public class UtilityFunction
 		 * Negative utility values are allowed, as getting any result is a
 		 * priority.
 		 */
-		
+
 		/* Query minimum price. */
 		if (query.getPriceMin() > 0.0 && query.getPriceMin() > product.getPrice()) {
 			utility--;
@@ -123,9 +123,7 @@ public class UtilityFunction
 		String[] phraseArray = phrase.split(";");
 
 		/*
-		 * TODO: Qué pasa con las palabras de una sola letra.
-		 * TODO: Qué pasa con las palabras sin significado (preposiciones, etc.).
-		 * TODO: Qué pasa con las palabras repetidas.
+		 * For each word.
 		 */
 
 		for (String p : phraseArray) {

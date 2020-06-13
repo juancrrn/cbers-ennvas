@@ -3,7 +3,7 @@ package com.cbers.ennvas.agentmanager.application.service;
 import com.cbers.ennvas.agentmanager.rest.controller.data.ProductResponse;
 
 /**
- * TODO Describe this class
+ * Product service interface.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna

@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * TODO Describe this class
+ * Product service interface implementation.
  * 
  * @author Juan Francisco Carrión Molina
  * @author Raquel Pérez González de Ossuna
