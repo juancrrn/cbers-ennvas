@@ -2,6 +2,8 @@
 
 Ennvas is an artificial-intelligence-based multiagent shopping system developped by Cbers for the subject Software Engineering 2 at the Complutense University of Madrid.
 
+Documentation/documentación: [Project final report.pdf](https://github.com/juancrrn/cbers-ennvas/blob/master/Project%20final%20report.pdf)
+
 ## Installation
 
 Ennvas is presented as a distributed architecture application. The four components can be run in different machines or in the same one, as they use HTTP REST API communications.
